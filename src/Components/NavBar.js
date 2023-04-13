@@ -1,17 +1,21 @@
 import React from "react";
-import "../styles/navbar.css"
+import "../styles/navbar.css";
+import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div>
-        {/* Nab Bar */}
+      {/* Nab Bar */}
       <nav className="navbar  navbar-expand-lg bg-body-tertiary navbar-dark bg-dark py-3">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
-          </a>
+        <div className="container-fluid ">
+          <Link
+            className="navbar-brand brand fs-3 fw-bold ps-3"
+            to={"/home"}
+            style={{ color: "yellow" }}
+          >
+            Yellow Chilli Restaurant
+          </Link>
           <button
-          
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -25,16 +29,21 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
+                <a className="nav-link" href="#">
+                  Order Food
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Link
+                  Book Table
                 </a>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
+                <a className="nav-link " aria-current="page" href="#">
+                  Contact Us
+                </a>
+              </li>
+              {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -64,7 +73,7 @@ const NavBar = () => {
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> */}
             </ul>
             <div className="d-flex text-white">
               <div className="me-3">
@@ -74,9 +83,9 @@ const NavBar = () => {
               </div>
 
               <div>
-                <a className="dropdown-item" href="#">
+                <Link className="dropdown-item" to={"/home/login"}>
                   Login
-                </a>
+                </Link>
               </div>
             </div>
           </div>
