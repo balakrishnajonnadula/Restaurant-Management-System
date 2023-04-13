@@ -1,0 +1,73 @@
+{
+    "tableBooking": [
+        {
+            "date": "2023-04-04",
+            "slot": "11:00 AM",
+            "tables": [
+                {
+                    "table": "1",
+                    "seats": [
+                        {
+                            "isAvailable": true,
+                            "price": 1500
+                        },
+                        {
+                            "isAvailable": true,
+                            "price": 1500
+                        }
+                    ]
+                },
+                {
+                    "table": "2",
+                    "seats": [
+                        {
+                            "isAvailable": true,
+                            "price": 1500
+                        },
+                        {
+                            "isAvailable": true,
+                            "price": 1500
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2023-04-04",
+            "slot": "12:00 PM",
+            "tables": [
+                {
+                    "seats": [
+                        {
+                            "tableId": 1,
+                            "isAvailable": false,
+                            "price": 1500
+                        },
+                        {
+                            "tableId": 2,
+                            "isAvailable": false,
+                            "price": 1500
+                        }
+                    ]
+                },
+                {
+                    "table": "2",
+                    "seats": [
+                        {
+                            "isAvailable": false,
+                            "price": 1500
+                        },
+                        {
+                            "isAvailable": true,
+                            "price": 1500
+                        },
+                        {
+                            "isAvailable": true,
+                            "price": 1500
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
