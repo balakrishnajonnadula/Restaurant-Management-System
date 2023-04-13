@@ -1,0 +1,17 @@
+.align {
+  display: flex;
+  align-items: center;
+}
+.align img {
+  
+  text-align: center;
+}
+.button{
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 18rem;
+    width: 300px;
+    padding: 13px 0px;
+    font-size: 20px;
+}

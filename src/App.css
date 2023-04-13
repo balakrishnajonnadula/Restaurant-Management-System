@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -47,40 +47,5 @@
   position: relative;
   left:300px;
 
-}
-.navbar{
-  background-color:black;
-}
-.content{
-  color: white !important;
-}
-
-
-
-.bg-img{
-  background-image: url('../public/RegisterImg.png');
-  background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    background-position: center;
-}
-.frm{
-  background-color: white;
-  height: 100vh;
-  
-}
-.storyhead{
-  color: white;
-}
-.chefcontent{
-  background-color: black;
-  color: #D6D6D6B3;
-}
-.chef-Img{
-  background-image: url('../public/chefImg.png');
-  background-repeat: no-repeat;
-    background-size: cover;
-    /* overflow: hidden; */
-    background-position: center;
 }
 
