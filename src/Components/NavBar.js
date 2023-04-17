@@ -1,6 +1,16 @@
 import React, { useEffect } from "react";
 import "../styles/navbar.css";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+<<<<<<< HEAD
+import { Link, Outlet } from "react-router-dom";
+
+const NavBar = () => {
+=======
+import title from "../assets/title.jpg";
+import { Link, Outlet } from "react-router-dom";
+>>>>>>> origin/master
 
 const NavBar = () => {
   useEffect(() => {
@@ -8,6 +18,7 @@ const NavBar = () => {
       .then((res) => res.json())
       .then((res) => console.log(res));
   }, []);
+>>>>>>> origin/master
 
   return (
     <div>
@@ -35,9 +46,15 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
+<<<<<<< HEAD
+                <Link className="nav-link"to={"/categories"}>
+                  Order Food
+                </Link>
+=======
                 <a className="nav-link" href="#">
                   Order Food
                 </a>
+>>>>>>> origin/master
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
