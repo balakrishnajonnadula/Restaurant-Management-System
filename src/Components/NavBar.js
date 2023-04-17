@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/navbar.css";
-import title from "../assets/title.jpg";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   useEffect(() => {
