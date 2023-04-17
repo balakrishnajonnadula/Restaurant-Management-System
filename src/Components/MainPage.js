@@ -8,7 +8,11 @@ import table from "../assets/table.jpg";
 import plate from "../assets/plate.jpg";
 
 import "../styles/home.css";
+import { useNavigate } from "react-router-dom";
+
 const MainPage = () => {
+
+  const navigate = useNavigate();
   return (
     <div>
       {/* Carousal */}
@@ -18,7 +22,7 @@ const MainPage = () => {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval="10000">
+          <div className="carousel-item active" data-bs-interval="1000">
             <img
               src={banner_one}
               className="d-block "
@@ -27,7 +31,7 @@ const MainPage = () => {
               alt=""
             />
           </div>
-          <div className="carousel-item" data-bs-interval="2000">
+          <div className="carousel-item" data-bs-interval="1000">
             <img
               src={banner_two}
               className="d-block "
@@ -36,7 +40,7 @@ const MainPage = () => {
               alt=""
             />
           </div>
-          <div className="carousel-item">
+          <div className="carousel-item"  data-bs-interval="1000">
             <img
               src={banner_three}
               className="d-block "
@@ -45,7 +49,7 @@ const MainPage = () => {
               alt=""
             />
           </div>
-          <div className="carousel-item">
+          <div className="carousel-item"  data-bs-interval="1000">
             <img
               src={banner_four}
               className="d-block "
@@ -163,7 +167,7 @@ const MainPage = () => {
                 </div>
                 <div className="d-flex justify-content-center my-4">
                   <div>
-                    <button className="button">Order</button>
+                    <button className="button" onClick={()=>{navigate("/categories")}}>Order</button>
                   </div>
                 </div>
               </div>

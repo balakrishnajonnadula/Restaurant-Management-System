@@ -1,7 +1,11 @@
 import React from "react";
 import "../styles/navbar.css";
 
+<<<<<<< HEAD
+import { Link } from "react-router-dom";
+=======
 import { Link} from "react-router-dom";
+>>>>>>> origin/master
 
 const NavBar = () => {
 
@@ -35,7 +39,10 @@ const NavBar = () => {
                 <Link className="nav-link"to={"/categories"}>
                   Order Food
                 </Link>
+<<<<<<< HEAD
+=======
                 
+>>>>>>> origin/master
 
               </li>
               <li className="nav-item">
