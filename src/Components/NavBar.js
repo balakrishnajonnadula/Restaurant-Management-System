@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import "../styles/navbar.css";
 <<<<<<< HEAD
+import { Link } from "react-router-dom";
+=======
+<<<<<<< HEAD
 import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
 =======
 import title from "../assets/title.jpg";
 import { Link, Outlet } from "react-router-dom";
+>>>>>>> origin/master
 
 const NavBar = () => {
   useEffect(() => {
