@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 import "../styles/navbar.css";
-
-import { Link } from "react-router-dom";
-
+import { Link, Outlet } from "react-router-dom";
 
 
 
 
+
+
+import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
+  
+
+
   return (
     <div>
       {/* Nab Bar */}
