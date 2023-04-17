@@ -1,17 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/navbar.css";
-import { Link, Outlet } from "react-router-dom";
 
-
-
-
-
-
-import { Link, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const NavBar = () => {
-  
-
 
   return (
     <div>
@@ -43,9 +35,7 @@ const NavBar = () => {
                 <Link className="nav-link"to={"/categories"}>
                   Order Food
                 </Link>
-                <a className="nav-link" href="#">
-                  Order Food
-                </a>
+                
 
               </li>
               <li className="nav-item">

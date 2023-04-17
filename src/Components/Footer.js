@@ -115,7 +115,7 @@ const Footer = () => {
               </div>
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="bg_color" type>
+                  <p className="bg_color" >
                     phone number +91 9966003344
                   </p>
                 </div>
