@@ -39,9 +39,6 @@ const NavBar = () => {
                 <Link className="nav-link"to={"/categories"}>
                   Order Food
                 </Link>
-                <a className="nav-link" href="#">
-                  Order Food
-                </a>
 
               </li>
               <li className="nav-item">
