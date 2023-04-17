@@ -1,16 +1,19 @@
 import React from "react";
-import  "../styles/footer.css";
+import "../styles/footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="container-fluid mt-5 py-5 bg-dark">
+    <div className="container-fluid py-5 bg-dark">
       <div className="py-5">
         <div className="row">
           <div className="col-lg-4 col-md-12 col-sm-12 px-5">
             <div className="d-block text-white px-5">
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="form-text">Home</p>
+                  <p className="form-text">
+                    <Link to={"/"}>Home</Link>
+                  </p>
                 </div>
                 <div>
                   <img
@@ -112,7 +115,7 @@ const Footer = () => {
               </div>
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="bg_color">
+                  <p className="bg_color" type>
                     phone number +91 9966003344
                   </p>
                 </div>
@@ -122,9 +125,7 @@ const Footer = () => {
               </div>
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="bg_color">
-                    yellochilliresturants@gamil.com
-                  </p>
+                  <p className="bg_color">yellochilliresturants@gamil.com</p>
                 </div>
                 <div>
                   <p></p>
@@ -170,9 +171,7 @@ const Footer = () => {
               </div>
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className=" bg_color">
-                    phone number +91 9966003344
-                  </p>
+                  <p className=" bg_color">phone number +91 9966003344</p>
                 </div>
                 <div>
                   <p></p>
@@ -180,9 +179,7 @@ const Footer = () => {
               </div>
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className=" bg_color">
-                    yellochilliresturants@gamil.com
-                  </p>
+                  <p className=" bg_color">yellochilliresturants@gamil.com</p>
                 </div>
                 <div>
                   <p></p>

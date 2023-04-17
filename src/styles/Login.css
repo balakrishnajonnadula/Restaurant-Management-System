@@ -1,8 +1,29 @@
-.background {
-  background-image: url("../assets/louis-hansel-DEYK2ecXLUg-unsplash-min.jpg");
-  height: 100vh;
+div input {
+  border: none;
+  border-radius: 0px;
+}
+
+.custom-input {
+  display: block;
   width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 3px solid #ced4da;
+  appearance: none;
+  /* border-radius: 0.375rem; */
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.custom-btn {
+  text-align: center;
+  margin-top: 10px;
+  border: none;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
 }

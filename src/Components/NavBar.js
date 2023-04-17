@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/navbar.css";
+import title from "../assets/title.jpg";
 import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
+  useEffect(() => {
+    fetch("http://localhost:8080/product/viewallproducts")
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  }, []);
+
   return (
     <div>
       {/* Nab Bar */}
@@ -10,10 +17,10 @@ const NavBar = () => {
         <div className="container-fluid ">
           <Link
             className="navbar-brand brand fs-3 fw-bold ps-3"
-            to={"/home"}
+            to={"/"}
             style={{ color: "yellow" }}
           >
-            Yellow Chilli Restaurant
+           Yellow Chilli Restaurants
           </Link>
           <button
             className="navbar-toggler"
@@ -83,7 +90,7 @@ const NavBar = () => {
               </div>
 
               <div>
-                <Link className="dropdown-item" to={"/home/login"}>
+                <Link className="dropdown-item" to={"/login"}>
                   Login
                 </Link>
               </div>
