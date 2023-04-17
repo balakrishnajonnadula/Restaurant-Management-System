@@ -10,11 +10,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
-  useEffect(() => {
-    fetch("http://localhost:8080/product/viewallproducts")
-      .then((res) => res.json())
-      .then((res) => console.log(res));
-  }, []);
+  
 
 
   return (
