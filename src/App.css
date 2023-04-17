@@ -1,5 +1,10 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -32,55 +37,20 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.text{
-  color:#F4FC07;
+.text {
+  color: #F4FC07;
   font-family: 'Allura';
   font-size: 20px;
   text-align: center;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   position: relative;
-  left:300px;
+  left: 300px;
 
 }
-.navbar{
-  background-color:black;
-}
-.content{
-  color: white !important;
-}
-
-
-
-.bg-img{
-  background-image: url('../public/RegisterImg.png');
-  background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    background-position: center;
-}
-.frm{
-  background-color: white;
-  height: 100vh;
-  
-}
-.storyhead{
-  color: white;
-}
-.chefcontent{
-  background-color: black;
-  color: #D6D6D6B3;
-}
-.chef-Img{
-  background-image: url('../public/chefImg.png');
-  background-repeat: no-repeat;
-    background-size: cover;
-    /* overflow: hidden; */
-    background-position: center;
-}
-
