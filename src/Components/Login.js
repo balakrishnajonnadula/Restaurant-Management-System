@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React  from "react";
 import loginImg from "../assets/brokeplate.jpg";
 import "../styles/Login.css";
-import plate from "../assets/table.jpg";
+
 
 const Login = () => {
-  const [uName, setUname] = useState("");
-  const [password, setPassword] = useState("");
+  // const [uName, setUname] = useState("");
+  // const [password, setPassword] = useState("");
 
   return (
     <div className="container-fluid">
