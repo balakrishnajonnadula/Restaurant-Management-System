@@ -8,7 +8,7 @@
                     "table": "1",
                     "seats": [
                         {
-                            "isAvailable": true,
+                            "isAvailable" : true,
                             "price": 1500
                         },
                         {

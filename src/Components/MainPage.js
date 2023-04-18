@@ -6,6 +6,7 @@ import banner_four from "../assets/shreyak-singh-gFB1IPmH6RE-unsplash-min.jpg";
 import chef from "../assets/chef.jpg";
 import table from "../assets/table.jpg";
 import plate from "../assets/plate.jpg";
+import "../styles/categories.css";
 
 import "../styles/home.css";
 import { useNavigate } from "react-router-dom";
@@ -137,7 +138,7 @@ const MainPage = () => {
                 <div className="d-flex justify-content-center">
                   <div className="">
                     <img
-                      className="text-center "
+                      className="text-center image"
                       src={table}
                       alt="table book"
                       width={"239px"}
@@ -157,7 +158,7 @@ const MainPage = () => {
                 <div className="d-flex justify-content-center">
                   <div className="">
                     <img
-                      className="text-center "
+                      className="text-center image "
                       src={plate}
                       alt="table book"
                       width={"239px"}
