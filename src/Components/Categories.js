@@ -24,7 +24,7 @@ const Categories = () => {
                                     <h4 className='text-center'>{item.name}</h4>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     )
                 }
             </div>
