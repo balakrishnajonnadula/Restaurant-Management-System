@@ -5,23 +5,23 @@ import categoriesService from '../services/categoriesService';
 const Categories = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        categoriesService.getCategories(res=> setCategories(res));
+        categoriesService.getCategories().then(res=> setCategories(res));
     }, []);
 
-    console.log(categories);
+    // console.log(categories);
     return (
 
-        <div Name='container-fluid'>
-            <div Name='row' >
+        <div className='container-fluid'>
+            <div className='row' >
                 {
                     categories.map((item, index) =>
-                        <div Name='col-lg-3 col-md-4 col-sm-12' key={index}>
-                            <div Name='m-5'>
-                                <div Name='mb-3'>
-                                    <img src={item.image} alt={item.slug} height={"200px"} width={"200px"} />
+                        <div className='col-lg-3 col-md-4 col-sm-12' key={index}>
+                            <div className='m-5'>
+                                <div className='mb-3 text-center'>
+                                    <img src={item.image} alt={item.slug} height={"250px"} width={"250px"}/>
                                 </div>
-                                <div Name=''>
-                                    <h4 Name='text-center'>{item.name}</h4>
+                                <div className=''>
+                                    <h4 className='text-center'>{item.name}</h4>
                                 </div>
                             </div>
                         </div>
