@@ -11,17 +11,17 @@ const Categories = () => {
     console.log(categories);
     return (
 
-        <div Name='container-fluid'>
-            <div Name='row' >
+        <div className='container-fluid'>
+            <div className='row' >
                 {
                     categories.map((item, index) =>
-                        <div Name='col-lg-3 col-md-4 col-sm-12 categories' key={index}>
-                            <div Name='mt-5'>
-                                <div Name='mb-3'>
+                        <div className='col-lg-3 col-md-4 col-sm-12 categories' key={index}>
+                            <div className='mt-5'>
+                                <div className='mb-3'>
                                     <img src={item.image} alt={item.slug} height={"200px"} width={"200px"} />
                                 </div>
-                                <div Name='mb-2'>
-                                    <h4 Name='text-center'>{item.name}</h4>
+                                <div className='mb-2'>
+                                    <h4 className='text-center'>{item.className}</h4>
                                 </div>
                             </div>
                         </div>
