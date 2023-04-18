@@ -1,11 +1,12 @@
-import React  from "react";
+import React, { useState }  from "react";
 import loginImg from "../assets/brokeplate.jpg";
 import "../styles/Login.css";
 
 
 const Login = () => {
-  // const [uName, setUname] = useState("");
-  // const [password, setPassword] = useState("");
+  const [uName, setUname] = useState("");
+  const [password, setPassword] = useState("");
+ 
 
   return (
     <div className="container-fluid">
@@ -34,7 +35,10 @@ const Login = () => {
                   className="custom-input"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
+                  onChange={(e)=>{setUname(e.target.value)}}
+                  
                 />
+              
               </div>
               <div className="mb-3">
                 <label for="exampleInputPassword1" className="form-label">
@@ -44,6 +48,7 @@ const Login = () => {
                   type="password"
                   className="custom-input"
                   id="exampleInputPassword1"
+                  onChange={(e)=>{setPassword(e.target.value)}}
                 />
               </div>
 

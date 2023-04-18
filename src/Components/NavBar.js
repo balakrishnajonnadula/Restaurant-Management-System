@@ -44,9 +44,9 @@ const NavBar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="#">
+                <Link className="nav-link " aria-current="page" to={"/contact"}>
                   Contact Us
-                </a>
+                </Link>
               </li>
               {/* <li className="nav-item dropdown">
                 <a
