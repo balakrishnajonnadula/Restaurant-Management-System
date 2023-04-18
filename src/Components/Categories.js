@@ -15,7 +15,7 @@ const Categories = () => {
             <div className='row' >
                 {
                     categories.map((item, index) =>
-                        <div className='col-lg-3 col-md-4 col-sm-12 categories' key={index}>
+                        <div className='col-lg-3 col-md-4 col-sm-12 ' key={index}>
                             <div className='mt-5'>
                                 <div className='mb-3'>
                                     <img src={item.image} alt={item.slug} height={"200px"} width={"200px"} />
