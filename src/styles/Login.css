@@ -13,7 +13,7 @@ div input {
   color: #212529;
   background-color: #fff;
   background-clip: padding-box;
-  border: 3px solid #ced4da;
+  border: 2px solid #ced4da;
   appearance: none;
   /* border-radius: 0.375rem; */
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
