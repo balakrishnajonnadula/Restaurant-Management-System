@@ -1,0 +1,18 @@
+.item-btn{
+    background-color: #D6D6D62E;
+    border: none;
+    padding: 5px 50px;
+    border-radius: 20px;
+    
+}
+.custom-btn{
+    background-color: #5D8ED5;
+    font-size: 15px;
+}
+
+.background{
+    background-color: #00000029;
+}
+.img{
+    border-radius: 50px;
+}
