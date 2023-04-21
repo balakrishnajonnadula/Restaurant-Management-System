@@ -18,7 +18,8 @@ const Categories = () => {
                         <div className='col-lg-3 col-md-4 col-sm-12' key={index}>
                             <div className='m-5'>
                                 <div className=' text-center'>
-                                    <img src={item.image} alt={item.slug} height={"250px"} width={"250px"}/>
+                                    <img src={item.image} alt={item.slug} height={"250px"} width={"250px"} onClick={(e)=>{alert
+                                    (item.slug)}}/>
                                 </div>
                                 <div className=''>
                                     <h4 className='text-center'>{item.name}</h4>
@@ -33,5 +34,4 @@ const Categories = () => {
 
     )
 }
-
 export default Categories;
