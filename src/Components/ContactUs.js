@@ -46,70 +46,75 @@ const ContactUs = () => {
               <div className="text-center py-4">
                 <h2>Contact us</h2>
               </div>
-              <div className="row px-5 pb-3">
-                <div className="col-lg-2 col-md-3">
-                  <h4 className="text-color">Name</h4>
-                </div>
-                <div className="col-lg-10 col-md-9">
-                  <input
-                    type={"text"}
-                    className="custom-input"
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
-                  />
-                 
-                </div>
-              </div>
-              <div className="row px-5 py-3">
-                <div className="col-lg-2 col-md-3">
-                  <h4 className="text-color">Email</h4>
-                </div>
-                <div className="col-lg-10 col-md-9">
-                  <input
-                    type={"email"}
-                    className="custom-input"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="row px-5 py-3">
-                <div className="col-lg-2 col-md-3">
-                  <h4 className="text-color">Phone Number</h4>
-                </div>
-                <div className="col-lg-10 col-md-9">
-                  <input
-                    type={"text"}
-                    className="custom-input"
-                    onChange={(e) => {
-                      setPhone(e.target.value);
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="col px-5 pt-3 pb-2">
-                <textarea
-                  placeholder="Write something here"
-                  className="p-3"
-                  onChange={(e) => {
-                    setComments(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="px-5 pb-5 d-flex justify-content-end">
-                <div>
-                  <button
-                    className="custom-btn py-2 px-5 fs-5"
-                    onClick={(e) => {
-                      handleContact(e);
-                    }}
-                  >
-                    SUBMIT
-                  </button>
-                </div>
-              </div>
+            
+                  <div className="row px-5 pb-3">
+                    <div className="col-lg-2 col-md-3">
+                      <h4 className="text-color">Name</h4>
+                    </div>
+                    <div className="col-lg-10 col-md-9">
+                      <input
+                        type={"text"}
+                        className="custom-input"
+                        onChange={(e) => {
+                          setName(e.target.value);
+                        }}
+                      />
+
+                    </div>
+                  </div>
+                  <div className="row px-5 py-3">
+                    <div className="col-lg-2 col-md-3">
+                      <h4 className="text-color">Email</h4>
+                    </div>
+                    <div className="col-lg-10 col-md-9">
+                      <input
+                        type={"email"}
+                        className="custom-input"
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="row px-5 py-3">
+                    <div className="col-lg-2 col-md-3">
+                      <h4 className="text-color">Phone Number</h4>
+                    </div>
+                    <div className="col-lg-10 col-md-9">
+                      <input
+                        type={"text"}
+                        className="custom-input"
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                        }} 
+                      
+                      />
+                    </div>
+                  </div>
+                  <div className="col px-5 pt-3 pb-2">
+                    <textarea
+                      placeholder="Write something here"
+                      className="p-3"
+                      onChange={(e) => {
+                        setComments(e.target.value);
+                      }}
+
+                    />
+                  </div>
+                  <div className="px-5 pb-5 d-flex justify-content-end">
+                    <div>
+                      <button type="submit"
+                        className="custom-btn py-2 px-5 fs-5"
+                        onClick={(e) => {
+                          handleContact(e);
+                        }}
+                      >
+                        SUBMIT
+                      </button>
+                    </div>
+                  </div>
+                
+            
             </div>
           </div>
         </div>

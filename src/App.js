@@ -9,6 +9,7 @@ import Categories from "./Components/Categories";
 import ContactUs from "./Components/ContactUs";
 import { ToastContainer } from "react-toastify";
 
+
 function App() {
   return (
     <div className="App">
@@ -19,7 +20,7 @@ function App() {
               <Route path="/" exact element={<MainPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/categories" element={<Categories />} />
-              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/contact" element={<ContactUs/>} />
             </Route>
           </Routes>
         </BrowserRouter>
