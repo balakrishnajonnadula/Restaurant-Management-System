@@ -20,7 +20,7 @@ const ContactUs = () => {
         Email: email,
         comments: comment,
         phone: phone,
-      };
+      }
       let status = contactService.postComments(com);
       if (status != null) {
         setName("");

@@ -21,6 +21,8 @@ const MainPage = () => {
         id="carouselExampleInterval"
         className="carousel slide"
         data-bs-ride="carousel"
+
+
       >
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="1000">
@@ -28,7 +30,7 @@ const MainPage = () => {
               src={banner_one}
               className="d-block "
               width={"100%"}
-              height={"700px"}
+              height={"650px"}
               alt=""
             />
           </div>
@@ -37,25 +39,25 @@ const MainPage = () => {
               src={banner_two}
               className="d-block "
               width={"100%"}
-              height={"700px"}
+              height={"650px"}
               alt=""
             />
           </div>
-          <div className="carousel-item"  data-bs-interval="1000">
+          <div className="carousel-item" data-bs-interval="1000">
             <img
               src={banner_three}
               className="d-block "
               width={"100%"}
-              height={"700px"}
+              height={"650px"}
               alt=""
             />
           </div>
-          <div className="carousel-item"  data-bs-interval="1000">
+          <div className="carousel-item" data-bs-interval="1000">
             <img
               src={banner_four}
               className="d-block "
               width={"100%"}
-              height={"700px"}
+              height={"650px"}
               alt=""
             />
           </div>
@@ -168,7 +170,7 @@ const MainPage = () => {
                 </div>
                 <div className="d-flex justify-content-center my-4">
                   <div>
-                    <button className="button" onClick={()=>{navigate("/categories")}}>Order</button>
+                    <button className="button" onClick={() => { navigate("/categories") }}>Order</button>
                   </div>
                 </div>
               </div>
