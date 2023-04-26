@@ -9,6 +9,7 @@ const ViewItem = () => {
 
   const [reviews, setReviews] = useState([]);
   const [custReview, setCustReview] = useState("");
+  // 
   useEffect(() => {
     itemsService.getItem(id).then((res) => setViewItem(res.data));
 
