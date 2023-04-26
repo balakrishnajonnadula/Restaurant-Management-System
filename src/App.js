@@ -10,6 +10,7 @@ import ContactUs from "./Components/ContactUs";
 
 import ListItems from "./Components/ListItems";
 import ViewItem from "./Components/ViewItem";
+import SignUp from "./Components/SignUp";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/listitems/:slug" element={<ListItems />} />
             <Route path="/viewitem/:id" element={<ViewItem/>}/>
+            <Route path="/signup" element={<SignUp/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
