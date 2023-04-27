@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import registerImage from "../assets/RegisterImg.png";
 import signUpService from '../services/signUpService';
+
 const SignUp = () => {
 
     const [username, setUsername] = useState();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const[confirmPassword,setConfirmPassword]=useState();
     const handleSignUp = (e) => {
         e.preventDefault();
         if (username !== null && email !== null && password !== null) {
@@ -29,8 +30,7 @@ const SignUp = () => {
             <div className="row" style={{ height: "90vh" }}>
                 <div
                     className="col-lg-8 col-md-7  d-none d-lg-block"
-                    style={{ padding: "0px" }}
-                >
+                    style={{ padding: "0px" }}>
                     <img src={registerImage} alt="bg" style={{ height: "90vh", width: "100%" }} />
                 </div>
                 <div
@@ -40,7 +40,7 @@ const SignUp = () => {
                     <div className="my-1">
                         <form>
                             <div className="mb-3">
-                                <h1 className="text-center ">Create an Account</h1>
+                                <h1 className="text-center">Create an Account</h1>
                             </div>
                             <div className="mb-3">
                                 <label for="exampleInputUsername1" className="form-label">
@@ -49,16 +49,16 @@ const SignUp = () => {
                                 <input
                                     type="text"
                                     className="custom-input"
-                                    id="exampleInputEmail1"
+                                    id="exampleInputUsername1"
                                     aria-describedby="emailHelp"
-                                    onChange={(e) => { setUsername(e.target.value) } }
+                                    onChange={(e) => { setUsername(e.target.value) }}
                                     required
                                 />
 
                             </div>
                             <div className="mb-3">
                                 <label for="exampleInputEmail1" className="form-label">
-                                    Email address
+                                    Email
                                 </label>
                                 <input
                                     type="email"
@@ -68,7 +68,6 @@ const SignUp = () => {
                                     onChange={(e) => { setEmail(e.target.value) }}
                                     required
                                 />
-
                             </div>
                             <div className="mb-3">
                                 <label for="exampleInputPassword1" className="form-label">
@@ -83,20 +82,20 @@ const SignUp = () => {
                                 />
                             </div>
                             <div className="mb-3">
-                                <label for="exampleInputPassword1" className="form-label">
+                                <label for="exampleconfirmPassword1" className="form-label">
                                     Confirm Password
                                 </label>
                                 <input
                                     type="password"
                                     className="custom-input"
-                                    id="exampleInputPassword1"
-                                    onChange={(e) => { setPassword(e.target.value) }}
+                                    id="exampleconfirmPassword1"
+                                    onChange={(e) => { setConfirmPassword(e.target.value) }}
                                     required
                                 />
                             </div>
 
-                            <div class="d-flex justify-content-center my-4">
-                                <button className="custom-btn py-3 w-100" style={{backgroundColor:'black'}} onClick={(e) => handleSignUp(e)}>SignUp</button>
+                            <div className="d-flex justify-content-center my-4">
+                                <button className="custom-btn py-3 w-100" style={{ backgroundColor: 'black' }} onClick={(e) => handleSignUp(e)}>SignUp</button>
                             </div>
                         </form>
                     </div>

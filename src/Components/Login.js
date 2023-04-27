@@ -29,7 +29,7 @@ const Login = () => {
               </div>
               <div className="mb-3">
                 <label for="exampleInputEmail1" className="form-label">
-                  Email address
+                  Email
                 </label>
                 <input
                   type="email"
@@ -53,7 +53,7 @@ const Login = () => {
                 />
               </div>
 
-              <div class="d-flex justify-content-center my-4">
+              <div className="d-flex justify-content-center my-4">
                 <button className="custom-btn py-3 w-100" style={{backgroundColor:'black'}}>Login</button>
 
               </div>

@@ -1,18 +1,31 @@
-.item-btn{
+.item-btn {
     background-color: #D6D6D62E;
     border: none;
     padding: 5px 50px;
     border-radius: 20px;
-    
+
 }
-.custom-btn{
+
+.custom-btn {
     background-color: #5D8ED5;
     font-size: 15px;
 }
 
-.background{
+.background {
     background-color: #00000029;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    height: 100%;
 }
-.img{
-    border-radius: 50px;
+
+.image:hover {
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari 3-8 */
+    transform: scale(1.1);
+}
+.item-adjust{
+    position: relative;
+    top:30px;
 }
