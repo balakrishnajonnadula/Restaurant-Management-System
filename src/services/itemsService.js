@@ -9,6 +9,14 @@ class ItemsService {
   getItem(id) {
     return axios.get(BASE_URL + "items/" + id);
   }
+
+  postReview(review) {
+    return axios.post(BASE_URL + "reviews/", review);
+  }
+
+  getReviews() {
+    return axios.get(BASE_URL + "reviews/");
+  }
 }
 
 export default new ItemsService();
