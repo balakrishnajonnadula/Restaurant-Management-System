@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import loginImg from "../assets/brokeplate.jpg";
 import "../styles/Login.css";
-import loginService from "../services/loginService";
-import axios from "axios";
+import userService from "../services/userService";
 
 const Login = () => {
   const [uName, setUname] = useState("");
   const [password, setPassword] = useState("");
-  const [response, setResponse] = useState();
-  const[tok,setTok] = useState();
+  const [users, setUsers] = useState([]);
+  const [tok, setTok] = useState();
+  const [stat, setStat] = useState();
+  const [err, setErr] = useState("");
+
+  useEffect(() => {
+    userService.getUsers().then((res) => setUsers(res.data));
+  }, []);
+  console.log(users);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,20 +24,26 @@ const Login = () => {
       password: password,
     };
 
-    // loginService.login(user).then((res) => {
-    //   setResponse(res.data);
+    // userService.login(user).then((res) => {
     //   setTok(res.data.token);
     // });
-    // localStorage.setItem("token",response.token);
-    // if (response.token) {
-    //   console.log("token : ", response.token);
-    // }
-    axios.post("http://192.168.7.221:8000/login/",user)
-    .then(resp => {
-      console.log("resp ",resp.data.token);
-    })
-    
+    userService.login(user).then((res) => {
+      setStat(res.status);
+      setTok(res.data.token);
+    });
   };
+
+  if (stat == 200) {
+    localStorage.setItem("token", tok);
+    users.map((user) => {
+      user.token == tok
+        ? localStorage.setItem("user", JSON.stringify(user))
+        : console.log();
+    });
+  }
+
+  // localStorage.setItem("user", user)
+  console.log("User deatials ", JSON.parse(localStorage.getItem("user")));
 
   return (
     <div className="container-fluid">

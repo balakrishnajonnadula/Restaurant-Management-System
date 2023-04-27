@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import registerImage from "../assets/RegisterImg.png";
-import signUpService from "../services/signUpService";
+import userService from "../services/userService";
 const SignUp = () => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState("");
@@ -26,7 +26,8 @@ const SignUp = () => {
       email: email,
       password: password,
     };
-    signUpService.addUsers(user).then((res) => console.log(res.data));
+    userService.addUsers(user).then((res) => console.log(res.data));
+
   };
 
   return (
