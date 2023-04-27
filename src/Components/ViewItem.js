@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import itemsService from "../services/itemsService";
-import "../styles/viewitem.css"
+import "../styles/viewitem.css";
 
 const ViewItem = () => {
   const { id } = useParams();
   const [viewItem, setViewItem] = useState();
 
+<<<<<<< HEAD
+=======
   const [reviews, setReviews] = useState([]);
   const [custReview, setCustReview] = useState("");
   // 
+>>>>>>> origin/master
   useEffect(() => {
     itemsService.getItem(id).then((res) => setViewItem(res.data));
 
     itemsService.getReviews().then(res => setReviews(res.data));
   }, []);
 
+<<<<<<< HEAD
+  console.log(viewItem);
+=======
 
 
   const handleReview = (e) => {
@@ -34,6 +40,7 @@ const ViewItem = () => {
 
   console.log(viewItem);
   console.log("Review : ", reviews)
+>>>>>>> origin/master
   return (
     <div className="container">
       <div className="row">
