@@ -81,7 +81,7 @@ const ContactUs = () => {
                 </div>
                 <div className="col-lg-10 col-md-9">
                   <input
-                    type={"text"}
+                    type={"number"}
                     className="custom-input"
                     onChange={(e) => {
                       setPhone(e.target.value);
@@ -101,7 +101,7 @@ const ContactUs = () => {
               <div className="px-5 pb-5 d-flex justify-content-end">
                 <div>
                   <button
-                    className="custom-btn py-2 px-5 fs-5"
+                    className="bg-dark py-2 px-5 fs-5 text-white"
                     onClick={(e) => {
                       handleContact(e);
                     }}

@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import itemsService from "../services/itemsService";
-import "../styles/viewitem.css"
+import "../styles/viewitem.css";
 
 const ViewItem = () => {
   const { id } = useParams();
   const [viewItem, setViewItem] = useState();
 
-
   useEffect(() => {
     itemsService.getItem(id).then((res) => setViewItem(res.data));
   }, []);
 
-
-  console.log(viewItem)
+  console.log(viewItem);
   return (
     <div className="container">
       <div className="row">
