@@ -12,6 +12,7 @@ import ListItems from "./Components/ListItems";
 import ViewItem from "./Components/ViewItem";
 import SignUp from "./Components/SignUp";
 import OrderFood from "./Components/OrderFood";
+import OrderTable from "./Components/OrderTable";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/viewitem/:id" element={<ViewItem />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/orderfood" element={<OrderFood />} />
+            <Route path="/ordertable" element={<OrderTable />} />
           </Route>
         </Routes>
       </BrowserRouter>
