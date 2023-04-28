@@ -3,6 +3,7 @@ import "../styles/navbar.css";
 
 import { Link, useNavigate } from "react-router-dom";
 
+import { toast } from "react-toastify";
 const NavBar = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const NavBar = () => {
     e.preventDefault();
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    toast.success("Logout successful")
     navigate("/");
 
   }
