@@ -50,7 +50,7 @@ const ListItems = () => {
                         alt={item.slug}
                         width={"100px"}
                         height={"100px"}
-                        style={{ borderRadius: '50px' }}
+                        style={{ borderRadius: '18rem' }}
                       />
 
                       <div className="background pb-3" >
