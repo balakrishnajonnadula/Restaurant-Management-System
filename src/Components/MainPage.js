@@ -27,10 +27,10 @@ const MainPage = () => {
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="1000">
             <img
-              src={banner_one}
+              src={banner_four}
               className="d-block "
               width={"100%"}
-              height={"650px"}
+              height={"700px"}
               alt=""
             />
           </div>
@@ -39,7 +39,7 @@ const MainPage = () => {
               src={banner_two}
               className="d-block "
               width={"100%"}
-              height={"650px"}
+              height={"700px"}
               alt=""
             />
           </div>
@@ -48,16 +48,17 @@ const MainPage = () => {
               src={banner_three}
               className="d-block "
               width={"100%"}
-              height={"650px"}
+              height={"700px"}
               alt=""
             />
           </div>
           <div className="carousel-item" data-bs-interval="1000">
             <img
-              src={banner_four}
+              
+              src={banner_one}
               className="d-block "
               width={"100%"}
-              height={"650px"}
+              height={"700px"}
               alt=""
             />
           </div>

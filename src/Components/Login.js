@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import loginImg from "../assets/brokeplate.jpg";
 import "../styles/Login.css";
 import userService from "../services/userService";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [uName, setUname] = useState("");
@@ -10,6 +11,8 @@ const Login = () => {
   const [tok, setTok] = useState();
   const [stat, setStat] = useState();
   const [err, setErr] = useState("");
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     userService.getUsers().then((res) => setUsers(res.data));
@@ -40,6 +43,7 @@ const Login = () => {
         ? localStorage.setItem("user", JSON.stringify(user))
         : console.log();
     });
+    navigate("/");
   }
 
   // localStorage.setItem("user", user)
@@ -103,12 +107,14 @@ const Login = () => {
                 >
                   Login
                 </button>
+               
               </div>
               <div>
-                <a href="/signup" style={{ textDecoration: "none" }}>
+                <a className="mt-3 " href="/signup" style={{ textDecoration: "none" }}>
                   Create an Account
                 </a>
               </div>
+             
             </form>
           </div>
         </div>

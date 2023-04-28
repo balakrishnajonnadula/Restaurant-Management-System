@@ -11,7 +11,7 @@ class ItemsService {
   }
 
   postReview(review) {
-    return axios.post(BASE_URL + "/reviews/", review);
+    return axios.post(BASE_URL + "reviews/", review);
   }
 
   getReviews() {

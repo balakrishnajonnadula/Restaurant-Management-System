@@ -11,12 +11,13 @@ import ContactUs from "./Components/ContactUs";
 import ListItems from "./Components/ListItems";
 import ViewItem from "./Components/ViewItem";
 import SignUp from "./Components/SignUp";
+import OrderFood from "./Components/OrderFood";
 
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Home />}>
             <Route path="/" exact element={<MainPage />} />
@@ -26,9 +27,11 @@ function App() {
             <Route path="/listitems/:slug" element={<ListItems />} />
             <Route path="/viewitem/:id" element={<ViewItem/>}/>
             <Route path="/signup" element={<SignUp/>}/>
+
           </Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <OrderFood/>
     </div>
   );
 }
