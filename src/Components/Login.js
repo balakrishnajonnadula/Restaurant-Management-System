@@ -3,38 +3,48 @@ import loginImg from "../assets/brokeplate.jpg";
 import "../styles/Login.css";
 import userService from "../services/userService";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const [uName, setUname] = useState("");
-  const [password, setPassword] = useState("");
+  const [uName, setUname] = useState();
+  const [password, setPassword] = useState();
   const [users, setUsers] = useState([]);
   const [tok, setTok] = useState();
   const [stat, setStat] = useState();
-  const [err, setErr] = useState("");
   const navigate = useNavigate();
-
 
   useEffect(() => {
     userService.getUsers().then((res) => setUsers(res.data));
   }, []);
-  console.log(users);
+  // console.log(users);
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    
     let user = {
       username: uName,
       password: password,
     };
-
-    // userService.login(user).then((res) => {
-    //   setTok(res.data.token);
-    // });
-    userService.login(user).then((res) => {
-      setStat(res.status);
-      setTok(res.data.token);
-    });
+  
+    userService
+      .login(user)
+      .then((res) => {
+        setStat(res.status);
+        setTok(res.data.token);
+      })
+      .then((res) =>
+        res.status == 200
+          ? toast.success("Login Success")
+          : toast.error("Bad Credentials")
+      )
+      .catch((err) =>
+        err.response.status == 500
+          ? toast.error("Bad Credentials")
+          : console.log()
+      );
   };
+
+  // toast.success("Login success");
 
   if (stat == 200) {
     localStorage.setItem("token", tok);
@@ -43,11 +53,11 @@ const Login = () => {
         ? localStorage.setItem("user", JSON.stringify(user))
         : console.log();
     });
+
     navigate("/");
   }
 
-  // localStorage.setItem("user", user)
-  console.log("User deatials ", JSON.parse(localStorage.getItem("user")));
+  // console.log("User deatials ", JSON.parse(localStorage.getItem("user")));
 
   return (
     <div className="container-fluid">
@@ -76,6 +86,7 @@ const Login = () => {
                   Email address
                 </label>
                 <input
+                  value={uName}
                   type="email"
                   className="custom-input"
                   id="exampleInputEmail1"
@@ -88,6 +99,7 @@ const Login = () => {
               <div className="mb-3">
                 <label className="form-label">Password</label>
                 <input
+                  value={password}
                   type="password"
                   className="custom-input"
                   id="exampleInputPassword1"
@@ -107,14 +119,16 @@ const Login = () => {
                 >
                   Login
                 </button>
-               
               </div>
               <div>
-                <a className="mt-3 " href="/signup" style={{ textDecoration: "none" }}>
+                <a
+                  className="mt-3 "
+                  href="/signup"
+                  style={{ textDecoration: "none" }}
+                >
                   Create an Account
                 </a>
               </div>
-             
             </form>
           </div>
         </div>
