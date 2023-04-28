@@ -42,18 +42,23 @@ const ListItems = () => {
               (item.category_slug == slug) ? (<div className="col-lg-2 col-md-4 col-sm-12 " key={index}>
                 <div className="box-item text-center my-5">
                   <div className="image-item shape ">
-                    <div className="">
+                    <div className="item-css">
+
                       <img
-                        className="img"
+                        className="image"
                         src={item.image}
                         alt={item.slug}
                         width={"100px"}
                         height={"100px"}
+                        style={{ borderRadius: '50px' }}
                       />
-                      <div className="background pb-3">
-                        <h6>{item.title}</h6>
-                        <h6>₹ {item.price}</h6>
+
+                      <div className="background pb-3" >
+                        <br/>
+                        <h5 className="fs-5">{item.title}</h5>
+                        <h5 className="fs-5">₹ {item.price}</h5>
                         <button className="custom-btn w-75 py-1" onClick={(e) => { handleDetails(e, item.id) }}>Details</button>
+
                       </div>
                     </div>
                   </div>

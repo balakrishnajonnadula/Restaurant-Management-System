@@ -1,16 +1,20 @@
 import React from "react";
 import "../styles/navbar.css";
 
-import { Link, json } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log("nav data ",user);
+  const navigate = useNavigate();
+  console.log("nav data ", user);
 
 
-  const handleLogout =(e)=>{
+  const handleLogout = (e) => {
     e.preventDefault();
-    alert("logout")
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    navigate("/");
+
   }
   return (
     <div>
@@ -79,19 +83,19 @@ const NavBar = () => {
                         <hr className="dropdown-divider"></hr>
                       </li>
                       <li>
-                        <Link className="dropdown-item" href="#" onClick={(e)=>handleLogout(e)}>
+                        <Link className="dropdown-item" href="#" onClick={(e) => handleLogout(e)}>
                           Logout
                         </Link>
                       </li>
                     </ul>
                   </div>
                 ) : (
-                  <Link className="dropdown-item" to={"/login"}>
+                  <Link className="dropdown-item me-5" to={"/login"}>
                     Login
                   </Link>
                 )}
               </div>
-              <div className="me-3">
+              <div className="me-5">
                 <Link className="dropdown-item" href="#">
                   Cart
                 </Link>

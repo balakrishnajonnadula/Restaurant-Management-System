@@ -12,7 +12,7 @@ const Footer = () => {
               <div className="d-flex justify-content-between">
                 <div>
                   <p className="form-text">
-                    <Link to={"/"}>Home</Link>
+                    <Link to={"/"} style={{ textDecoration: 'none' }}>Home</Link>
                   </p>
                 </div>
                 <div>
@@ -52,7 +52,7 @@ const Footer = () => {
             <div className="d-block text-white px-5">
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="form-text"><Link to={"/categories"}>Order Food</Link></p>
+                  <p className="form-text"><Link to={"/categories"} style={{ textDecoration: 'none' }}> Order Food</Link></p>
                 </div>
                 <div>
                   <img

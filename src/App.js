@@ -11,6 +11,7 @@ import ContactUs from "./Components/ContactUs";
 import ListItems from "./Components/ListItems";
 import ViewItem from "./Components/ViewItem";
 import SignUp from "./Components/SignUp";
+import OrderFood from "./Components/OrderFood";
 
 
 function App() {
@@ -24,11 +25,13 @@ function App() {
             <Route path="/categories" element={<Categories />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/listitems/:slug" element={<ListItems />} />
-            <Route path="/viewitem/:id" element={<ViewItem/>}/>
-            <Route path="/signup" element={<SignUp/>}/>
+            <Route path="/viewitem/:id" element={<ViewItem />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/orderfood" element={<OrderFood />} />
           </Route>
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 }
