@@ -1,33 +1,65 @@
 import React, { useState } from "react";
 import registerImage from "../assets/RegisterImg.png";
 import userService from "../services/userService";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 const SignUp = () => {
   const [username, setUsername] = useState();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [confirmPass, setConfirmPass] = useState();
+  const [passErr, setPasErr] = useState("");
+  const [errUser, setErrUser] = useState("");
+  const [errEmail, setErrEmail] = useState("");
+  const [errPass, setErrPass] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    // if (username !== null && email !== null && password !== null) {
-    //     let users = {
-    //         username: username,
-    //         email: email,
-    //         password: password
-    //     }
-    //     let status = signUpService.addUsers(users);
-    //     if (status != null) {
-    //         alert(username + " " + email + " " + password)
-    //     } else {
-    //         alert("data not inserted")
-    //     }
-    // }
-    let user = {
-      username: username,
-      email: email,
-      password: password,
-    };
-    userService.addUsers(user).then((res) => console.log(res.data));
-
+    if (
+      password != null &&
+      confirmPass != null &&
+      username != null &&
+      email != null &&
+      password === confirmPass
+    ) {
+      setPasErr("");
+      let user = {
+        username: username,
+        email: email,
+        password: password,
+      };
+      // console.log(user);
+      userService.addUsers(user).then(toast.success("Register success"));
+      navigate("/");
+    }
+    if (password !== confirmPass) {
+      setConfirmPass("Password mismatch");
+    } else {
+      setConfirmPass("");
+    }
+    if (username == null) {
+      setErrUser("Username required");
+    } else {
+      setErrUser("");
+    }
+    if (email == null) {
+      setErrEmail("Email required");
+    } else {
+      setErrEmail("");
+    }
+    if (password == null) {
+      setErrPass("password required");
+    } else {
+      setErrEmail("");
+    }
+    if (confirmPass == null) {
+      setConfirmPass("password required");
+    } else {
+      setConfirmPass("");
+    }
   };
 
   return (
@@ -53,65 +85,60 @@ const SignUp = () => {
                 <h1 className="text-center ">Create an Account</h1>
               </div>
               <div className="mb-3">
-                <label for="exampleInputUsername1" className="form-label">
-                  User Name
-                </label>
+                <label className="form-label">User Name</label>
                 <input
+                  value={username}
                   type="text"
                   className="custom-input"
-                  id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   onChange={(e) => {
                     setUsername(e.target.value);
                   }}
                   required
                 />
+                <p className="form-text text-danger">{errUser}</p>
               </div>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">
-                  Email address
-                </label>
+                <label className="form-label">Email address</label>
                 <input
+                  value={email}
                   type="email"
                   className="custom-input"
-                  id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
                   required
                 />
+                <p className="form-text text-danger">{errEmail}</p>
               </div>
               <div className="mb-3">
-                <label for="exampleInputPassword1" className="form-label">
-                  Password
-                </label>
+                <label className="form-label">Password</label>
                 <input
+                  value={password}
                   type="password"
                   className="custom-input"
-                  id="exampleInputPassword1"
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
                   required
                 />
+                <p className="form-text text-danger">{errPass}</p>
               </div>
               <div className="mb-3">
-                <label for="exampleInputPassword1" className="form-label">
-                  Confirm Password
-                </label>
+                <label className="form-label">Confirm Password</label>
                 <input
                   type="password"
                   className="custom-input"
-                  id="exampleInputPassword1"
                   onChange={(e) => {
-                    setPassword(e.target.value);
+                    setConfirmPass(e.target.value);
                   }}
                   required
                 />
+                <p className="form-text text-danger">{passErr}</p>
               </div>
 
-              <div class="d-flex justify-content-center my-4">
+              <div className="d-flex justify-content-center my-4">
                 <button
                   className="custom-btn py-3 w-100"
                   style={{ backgroundColor: "black" }}
