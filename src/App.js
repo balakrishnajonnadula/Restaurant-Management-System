@@ -17,7 +17,7 @@ import OrderFood from "./Components/OrderFood";
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Home />}>
             <Route path="/" exact element={<MainPage />} />
@@ -25,13 +25,13 @@ function App() {
             <Route path="/categories" element={<Categories />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/listitems/:slug" element={<ListItems />} />
-            <Route path="/viewitem/:id" element={<ViewItem/>}/>
-            <Route path="/signup" element={<SignUp/>}/>
-
+            <Route path="/viewitem/:id" element={<ViewItem />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/orderfood" element={<OrderFood />} />
           </Route>
         </Routes>
-      </BrowserRouter> */}
-      <OrderFood/>
+      </BrowserRouter>
+
     </div>
   );
 }
