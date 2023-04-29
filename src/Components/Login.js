@@ -11,38 +11,54 @@ const Login = () => {
   const [users, setUsers] = useState([]);
   const [tok, setTok] = useState();
   const [stat, setStat] = useState();
+  const [errUser, setErrUser] = useState();
+  const [errPass, setErrPass] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
     userService.getUsers().then((res) => setUsers(res.data));
   }, []);
-  // console.log(users);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    
-    let user = {
-      username: uName,
-      password: password,
-    };
-  
-    userService
-      .login(user)
-      .then((res) => {
-        setStat(res.status);
-        setTok(res.data.token);
-      })
-      .then((res) =>
-        res.status == 200
-          ? toast.success("Login Success")
-          : toast.error("Bad Credentials")
-      )
-      .catch((err) =>
-        err.response.status == 500
-          ? toast.error("Bad Credentials")
-          : console.log()
-      );
-  };
+    if (uName == ""||uName==null) {
+      setErrUser("Username required");
+    } else {
+      setErrUser();
+    }
+    if (password == ""||password==null) {
+      setErrPass("Password required");
+    } else {
+      setErrPass();
+    }
+    if (
+      uName != null && password != null
+    ) {
+      let user = {
+        username: uName,
+        password: password,
+      };
+      userService
+        .login(user)
+        .then((res) => {
+          setStat(res.status);
+          setTok(res.data.token);
+        })
+        .then((res) =>
+          res.status == 200
+            ? toast.success("Login Success")
+            : toast.error("Bad Credentials")
+        )
+        .catch((err) =>
+          err.response.status == 500
+            ? toast.error("Bad Credentials")
+            : console.log()
+        );
+    }
+
+
+
+  }
 
   // toast.success("Login success");
 
@@ -56,9 +72,6 @@ const Login = () => {
 
     navigate("/");
   }
-
-  // console.log("User deatials ", JSON.parse(localStorage.getItem("user")));
-
   return (
     <div className="container-fluid">
       <div className="row" style={{ height: "100vh" }}>
@@ -83,7 +96,7 @@ const Login = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
-                  Email address
+                  User name
                 </label>
                 <input
                   value={uName}
@@ -95,6 +108,7 @@ const Login = () => {
                     setUname(e.target.value);
                   }}
                 />
+                <p className="form-text text-danger">{errUser}</p>
               </div>
               <div className="mb-3">
                 <label className="form-label">Password</label>
@@ -107,6 +121,7 @@ const Login = () => {
                     setPassword(e.target.value);
                   }}
                 />
+                <p className="form-text text-danger">{errPass}</p>
               </div>
 
               <div className="d-flex justify-content-center my-4">

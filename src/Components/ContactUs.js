@@ -3,37 +3,56 @@ import "../styles/contactus.css";
 import "../styles/Login.css";
 import contactService from "../services/contactService";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ContactUs = () => {
-  const [name, setName] = useState(" ");
-  const [email, setEmail] = useState(" ");
-  const [phone, setPhone] = useState(" ");
-  const [comment, setComments] = useState(" ");
-
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+  const [comment, setComments] = useState();
+  const [nameErr, setNameError] = useState();
+  const [emailErr, setEmailError] = useState();
+  const [numberErr, setNumberError] = useState();
+  const [textErr, setTextError] = useState();
   const navigate = useNavigate();
 
   const handleContact = (e) => {
     e.preventDefault();
-    if (name !== null && email !== null && phone !== null && comment !== null) {
+
+    if (name != null && email != null && phone != null && comment != null) {
       let com = {
         name: name,
         Email: email,
         comments: comment,
-        phone: phone,
+        phone: phone
       }
-      let status = contactService.postComments(com);
+      let status = contactService.postComments(com).catch(err => toast.error(err, { theme: "colored" }));
       if (status != null) {
-        setName("");
-        setPhone("");
-        setEmail("");
-        setComments("");
-
-        setTimeout(() => {
-          navigate("/");
-        }, 1500);
+        toast.success("Your information recieved",  { theme: "colored" })
+        navigate("/");
       } else {
-        console.log("failed");
+
       }
+    }
+    if (name == "" || name == null) {
+      setNameError("Name required");
+    } else {
+      setNameError();
+    }
+    if (email == "" || email == null) {
+      setEmailError("Email required");
+    } else {
+      setEmailError();
+    }
+    if (phone == "" || phone == null) {
+      setNumberError("Number required and length should be 10");
+    } else {
+      setNumberError();
+    }
+    if (comment == "" || comment == null) {
+      setTextError("Write something required");
+    } else {
+      setTextError();
     }
   };
 
@@ -58,7 +77,7 @@ const ContactUs = () => {
                       setName(e.target.value);
                     }}
                   />
-                 
+                  <p className="form-text text-danger">{nameErr}</p>
                 </div>
               </div>
               <div className="row px-5 py-3">
@@ -73,6 +92,7 @@ const ContactUs = () => {
                       setEmail(e.target.value);
                     }}
                   />
+                  <p className="form-text text-danger">{emailErr}</p>
                 </div>
               </div>
               <div className="row px-5 py-3">
@@ -81,12 +101,15 @@ const ContactUs = () => {
                 </div>
                 <div className="col-lg-10 col-md-9">
                   <input
-                    type={"number"}
+                    type={"text"}
                     className="custom-input"
                     onChange={(e) => {
                       setPhone(e.target.value);
+
                     }}
+                    maxLength="10"
                   />
+                  <p className="form-text text-danger">{numberErr}</p>
                 </div>
               </div>
               <div className="col px-5 pt-3 pb-2">
@@ -97,6 +120,7 @@ const ContactUs = () => {
                     setComments(e.target.value);
                   }}
                 />
+                <p className="form-text text-danger">{textErr}</p>
               </div>
               <div className="px-5 pb-5 d-flex justify-content-end">
                 <div>
