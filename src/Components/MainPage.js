@@ -13,6 +13,8 @@ import { useNavigate } from "react-router-dom";
 
 const MainPage = () => {
 
+  
+
   const navigate = useNavigate();
   return (
     <div>
