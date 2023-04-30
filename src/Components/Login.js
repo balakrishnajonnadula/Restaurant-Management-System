@@ -5,7 +5,7 @@ import userService from "../services/userService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 // import itemsService from "../services/itemsService";
-import axios from "axios";
+
 import itemsService from "../services/itemsService";
 
 const Login = () => {
@@ -20,7 +20,6 @@ const Login = () => {
 
   useEffect(() => {
     userService.getUsers().then((res) => setUsers(res.data));
-    
   }, []);
 
   const handleLogin = (e) => {
@@ -64,10 +63,11 @@ const Login = () => {
         : console.log();
     });
 
-    itemsService.viewCartItems().then((res) => localStorage.setItem("cart", JSON.stringify(res.data)));
+    itemsService
+      .viewCartItems()
+      .then((res) => localStorage.setItem("cart", JSON.stringify(res.data)));
     // localStorage.setItem("cart", JSON.stringify(cartItems));
     navigate("/");
-
   }
 
   return (

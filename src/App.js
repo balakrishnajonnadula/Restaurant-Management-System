@@ -19,7 +19,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Cart from "./Components/Cart";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import BookTable from "./Components/BookTable";
 
+import 'react-calendar/dist/Calendar.css';
 function App() {
   return (
     <div className="App">
@@ -37,6 +39,7 @@ function App() {
               <Route path="/orderfood" element={<OrderFood />} />
               <Route path="/ordertable" element={<OrderTable />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/booktable" element={<BookTable />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -18,7 +18,7 @@ const ViewItem = () => {
   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
 
-  console.log("Reviews : ",reviews);
+  console.log("Reviews : ", reviews);
   useEffect(() => {
     itemsService.getItem(id).then((res) => setViewItem(res.data));
 
@@ -30,6 +30,7 @@ const ViewItem = () => {
   const handleReview = (e) => {
     if (token != null) {
       e.preventDefault();
+
       let date = new Date();
       let reviewDate =
         date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
@@ -38,7 +39,7 @@ const ViewItem = () => {
         rslug: viewItem.slug,
         review: custReview,
         posted_on: reviewDate,
-      }
+      };
       // axios.post("http://192.168.1.64:8000/reviews/",rew, {
       //   headers: {
       //     Authorization: "Token " + token,
@@ -46,15 +47,18 @@ const ViewItem = () => {
       // })
       // console.log("review", rew)
 
-      userService
-        .reviewItem(rew)
-        .then(toast.success("Review Submitted"))
-        .then(navigate(`/listitems/${viewItem.category_slug}`))
-        .catch((err) => toast.error(err));
+      if (custReview.length > 3) {
+        userService
+          .reviewItem(rew)
+          .then(toast.success("Review Submitted"))
+          .then(navigate(`/listitems/${viewItem.category_slug}`))
+          .catch((err) => toast.error(err));
+      } else {
+        toast.error("Content is required to post review");
+      }
     } else {
-      
       toast.error("User must be login to review");
-      navigate("/login")
+      navigate("/login");
     }
   };
 
@@ -176,7 +180,7 @@ const ViewItem = () => {
       <div className="my-3  bg-light p-5">
         <h3 className="fs-3 fw-bold mb-3">Reviews</h3>
         <textarea
-          style={{ height: "100px" }}
+          style={{ height: "100px", width: "100%" }}
           placeholder="Write something here"
           className="p-3"
           onChange={(e) => {
