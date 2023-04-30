@@ -10,12 +10,32 @@ class ItemsService {
     return axios.get(BASE_URL + "items/" + id);
   }
 
-  postReview(review) {
-    return axios.post(BASE_URL + "reviews/", review);
-  }
 
   getReviews() {
-    return axios.get(BASE_URL + "reviews/");
+    let token = localStorage.getItem("token");
+    return axios.get(BASE_URL + "reviews/", {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
+  }
+
+  addToCart(item) {
+    let token = localStorage.getItem("token");
+    return axios.post(BASE_URL + "cart_items/", item, {
+      headers: {
+        Authorization: "Token " + token,
+      },
+    });
+  }
+
+  viewCartItems() {
+    let token = localStorage.getItem("token");
+    return axios.get(BASE_URL + "cart_items/", {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
   }
 }
 

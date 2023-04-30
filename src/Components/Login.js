@@ -4,6 +4,9 @@ import "../styles/Login.css";
 import userService from "../services/userService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+// import itemsService from "../services/itemsService";
+import axios from "axios";
+import itemsService from "../services/itemsService";
 
 const Login = () => {
   const [uName, setUname] = useState();
@@ -17,23 +20,22 @@ const Login = () => {
 
   useEffect(() => {
     userService.getUsers().then((res) => setUsers(res.data));
+    
   }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (uName == ""||uName==null) {
+    if (uName == "" || uName == null) {
       setErrUser("Username required");
     } else {
       setErrUser();
     }
-    if (password == ""||password==null) {
+    if (password == "" || password == null) {
       setErrPass("Password required");
     } else {
       setErrPass();
     }
-    if (
-      uName != null && password != null
-    ) {
+    if (uName != null && password != null) {
       let user = {
         username: uName,
         password: password,
@@ -44,21 +46,13 @@ const Login = () => {
           setStat(res.status);
           setTok(res.data.token);
         })
-        .then((res) =>
-          res.status == 200
-            ? toast.success("Login Success")
-            : toast.error("Bad Credentials")
-        )
         .catch((err) =>
           err.response.status == 500
             ? toast.error("Bad Credentials")
             : console.log()
         );
     }
-
-
-
-  }
+  };
 
   // toast.success("Login success");
 
@@ -70,8 +64,12 @@ const Login = () => {
         : console.log();
     });
 
+    itemsService.viewCartItems().then((res) => localStorage.setItem("cart", JSON.stringify(res.data)));
+    // localStorage.setItem("cart", JSON.stringify(cartItems));
     navigate("/");
+
   }
+
   return (
     <div className="container-fluid">
       <div className="row" style={{ height: "100vh" }}>

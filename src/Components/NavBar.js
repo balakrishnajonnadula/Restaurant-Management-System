@@ -1,23 +1,57 @@
-import React from "react";
 import "../styles/navbar.css";
 
 import { Link, useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
-const NavBar = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  const navigate = useNavigate();
-  console.log("nav data ", user);
+import userService from "../services/userService";
+import { useEffect, useState } from "react";
+import itemsService from "../services/itemsService";
 
+const NavBar = (props) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const [cartItems, setCartItems] = useState([]);
+
+  let count = [];
+
+  useEffect(() => {
+    if (user != null) {
+      itemsService.viewCartItems().then((res) => setCartItems(res.data));
+    }
+  }, []);
+
+  if (user != null) {
+    cartItems &&
+      cartItems.map((item) => {
+        if (user.id == item.user.id) {
+          count.push(item);
+        }
+      });
+  }
+
+  const handleCart = (e) => {
+    e.preventDefault();
+    if (count.length > 0) {
+      navigate("/cart");
+    } else {
+      toast.error("Cart is empty add items");
+      navigate("/categories");
+    }
+  };
+
+  const navigate = useNavigate();
+  // console.log("nav data ", user);
 
   const handleLogout = (e) => {
     e.preventDefault();
+    userService.logout().catch((err) => toast.error(err));
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-    toast.success("Logout successful")
+    localStorage.removeItem("cart");
+    toast.success("Logout successful");
     navigate("/");
+  };
 
-  }
   return (
     <div>
       {/* Nab Bar */}
@@ -69,7 +103,9 @@ const NavBar = () => {
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
-                    >{user.username}</Link>
+                    >
+                      {user.username}
+                    </Link>
                     <ul className="dropdown-menu me-2">
                       <li>
                         <Link className="dropdown-item" href="#">
@@ -85,7 +121,11 @@ const NavBar = () => {
                         <hr className="dropdown-divider"></hr>
                       </li>
                       <li>
-                        <Link className="dropdown-item" href="#" onClick={(e) => handleLogout(e)}>
+                        <Link
+                          className="dropdown-item"
+                          href="#"
+                          onClick={(e) => handleLogout(e)}
+                        >
                           Logout
                         </Link>
                       </li>
@@ -98,8 +138,13 @@ const NavBar = () => {
                 )}
               </div>
               <div className="me-5">
-                <Link className="dropdown-item" href="#">
-                  Cart
+                <Link
+                  className="dropdown-item"
+                  onClick={(e) => {
+                    handleCart(e);
+                  }}
+                >
+                  Cart&nbsp; <span className="text-warning">{count.length}</span>
                 </Link>
               </div>
             </form>
