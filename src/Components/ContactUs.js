@@ -115,7 +115,7 @@ const ContactUs = () => {
               <div className="col px-5 pt-3 pb-2">
                 <textarea
                   placeholder="Write something here"
-                  className="p-3"
+                  className="p-3 textarea"
                   onChange={(e) => {
                     setComments(e.target.value);
                   }}

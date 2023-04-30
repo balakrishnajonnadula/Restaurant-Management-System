@@ -45,7 +45,15 @@ const Footer = () => {
             <div className="d-block text-white px-5">
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="form-text">Book a table</p>
+                  <p>
+                    <Link
+                      to={"/booktable"}
+                      className="form-text"
+                      style={{ textDecoration: "none" }}
+                    >
+                      Book a table
+                    </Link>
+                  </p>
                 </div>
                 <div>
                   <img
