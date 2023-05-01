@@ -1,7 +1,9 @@
+/* eslint-disable no-cond-assign */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import itemsService from "../services/itemsService";
-import "../styles/cart.css"
+import "../styles/cart.css";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -14,15 +16,25 @@ const Cart = () => {
   let totalPrice = 0;
 
   useEffect(() => {
-    if (user != null) {
-      itemsService.viewCartItems().then((res) => setCartItems(res.data));
-    }
+    getItems();
   }, []);
+
+  const getItems = async () => {
+    if (user != null) {
+      await itemsService.viewCartItems().then((res) => setCartItems(res.data));
+    }
+    navigateCount();
+  };
+
+  const navigateCount = () => {
+    if (count.length - 1 > 0) {
+      navigate("/categories");
+    }
+  };
 
   cartItems &&
     cartItems.map((item) => {
       if (user.id == item.user.id) {
-        // console.log("item" ,item)
         count.push(item);
       }
     });
@@ -32,8 +44,22 @@ const Cart = () => {
     totalPrice += amt;
   });
 
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    // alert(id);
+    if (count.length === 1) {
+      itemsService.deleteCartItem(id).catch((err) => toast.error(err));
+      // console.log("length : ", count.length);
+      navigate("/categories");
+      window.location.reload();
+    }else{
+      itemsService.deleteCartItem(id).catch((err) => toast.error(err));
+      window.location.reload();
+    }
+  };
+
   console.log(count);
-  console.log("total price : ", totalPrice);
+  // console.log("total price : ", totalPrice);
   return (
     <div className="container my-5">
       {cartItems &&
@@ -59,8 +85,19 @@ const Cart = () => {
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-12">
                   <strong>₹ {item.item.price}</strong>
+                  <p
+                    className="form-text text-danger fw-bold pt-4 "
+                    style={{cursor:"pointer"}}
+                    onClick={(e) => {
+                      handleDelete(e, item.id);
+                    }}
+                    
+                  >
+                    Delete
+                  </p>
                 </div>
               </div>
+
               <hr></hr>
             </div>
           ) : (
@@ -78,15 +115,15 @@ const Cart = () => {
                   <p>items {`(${count.length})`}</p>
                 </div>
                 <div className="">
-                  <p>₹ {totalPrice }</p>
+                  <p>₹ {totalPrice}</p>
                 </div>
               </div>
               <div className="d-flex justify-content-between">
                 <div className="">
-                  <p>Tax</p>
+                  <p>Tax (10%)</p>
                 </div>
                 <div className="">
-                  <p>₹ {(totalPrice * 0.10)}</p>
+                  <p>₹ {totalPrice * 0.1}</p>
                 </div>
               </div>
               <div className="d-flex justify-content-between">
@@ -94,7 +131,7 @@ const Cart = () => {
                   <p>Total</p>
                 </div>
                 <div className="">
-                  <p>₹ {totalPrice + (totalPrice * 0.10)}</p>
+                  <p>₹ {totalPrice + totalPrice * 0.1}</p>
                 </div>
               </div>
               <div className="my-3">

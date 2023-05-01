@@ -4,3 +4,8 @@
     color: #fff;
     font-size: 18px;
 }
+
+.delete-btn::hover{
+    cursor: pointer;
+
+}

@@ -18,7 +18,7 @@ const ViewItem = () => {
   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
 
-  console.log("Reviews : ", reviews);
+  // console.log("Reviews : ", reviews);
   useEffect(() => {
     itemsService.getItem(id).then((res) => setViewItem(res.data));
 
@@ -34,19 +34,13 @@ const ViewItem = () => {
       let date = new Date();
       let reviewDate =
         date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
       let rew = {
         item: id,
         rslug: viewItem.slug,
         review: custReview,
         posted_on: reviewDate,
       };
-      // axios.post("http://192.168.1.64:8000/reviews/",rew, {
-      //   headers: {
-      //     Authorization: "Token " + token,
-      //   },
-      // })
-      // console.log("review", rew)
-
       if (custReview.length > 3) {
         userService
           .reviewItem(rew)
@@ -78,6 +72,7 @@ const ViewItem = () => {
         .catch((err) => toast.error(err));
 
       navigate(`/listitems/${viewItem.category_slug}`);
+      window.location.reload();
     } else {
       toast.error("User must be login");
       navigate("/login");
@@ -129,7 +124,7 @@ const ViewItem = () => {
                 <div className="me-5">
                   <h4>Quantity</h4>
                 </div>
-                <div class="input-group mb-3 w-25">
+                <div className="input-group mb-3 w-25">
                   <button
                     className="btn btn-danger fw-bold"
                     onClick={(e) => {
@@ -138,11 +133,11 @@ const ViewItem = () => {
                   >
                     -
                   </button>
-                  {/* <span class="input-group-text">First and last name</span> */}
+                  {/* <span className="input-group-text">First and last name</span> */}
                   <input
                     type="text"
                     aria-label="Last name"
-                    class="form-control w-25 text-center"
+                    className="form-control w-25 text-center"
                     value={qty}
                     readOnly
                     // onChange={(e) => {

@@ -10,7 +10,6 @@ class ItemsService {
     return axios.get(BASE_URL + "items/" + id);
   }
 
-
   getReviews() {
     let token = localStorage.getItem("token");
     return axios.get(BASE_URL + "reviews/", {
@@ -32,6 +31,15 @@ class ItemsService {
   viewCartItems() {
     let token = localStorage.getItem("token");
     return axios.get(BASE_URL + "cart_items/", {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
+  }
+
+  deleteCartItem(id) {
+    let token = localStorage.getItem("token");
+    return axios.delete(BASE_URL + "cart_items/" + id + "/", {
       headers: {
         Authorization: `Token ${token}`,
       },
