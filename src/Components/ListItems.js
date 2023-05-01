@@ -13,7 +13,7 @@ const ListItems = () => {
     itemsService.getItemsList().then((res) => setItems(res.data));
   }, []);
 
-  console.log(items);
+  // console.log(items);
 
   const handleDetails = (e, id) => {
     e.preventDefault()
@@ -42,7 +42,7 @@ const ListItems = () => {
               (item.category_slug == slug) ? (<div className="col-lg-3 col-md-4 col-sm-12 " key={index}>
                 <div className=" text-center my-5">
                   <div className=" ">
-                    <div className="border_box mx-5 py-3">
+                    <div className="border_box  pt-4 pb-3 mx-2" >
 
                       <img
                         className="image"
