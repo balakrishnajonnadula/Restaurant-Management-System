@@ -5,8 +5,38 @@ import { useNavigate } from "react-router-dom";
 const BookTable = () => {
   const [value, onChange] = useState(new Date());
   const [partySize, setPartySize] = useState(0);
+  const [adultSize, setAdultSize] = useState(0);
+  const [childSize, setChildSize] = useState(0);
+  const [errAdult, setErrAdult] = useState();
+  const [errChild, setErrChild] = useState();
 
   const navigate = useNavigate();
+
+  function handleAdultInputChange(event) {
+    const inputValue = event.target.value;
+    setAdultSize(inputValue);
+    if (inputValue > partySize || inputValue < 0) {
+      setErrAdult("Invalid Adult Size")
+    } else {
+      const childValue = partySize - parseInt(inputValue);
+      setChildSize(childValue.toString());
+      setErrAdult()
+    }
+
+  }
+
+  function handleChildInputChange(event) {
+    const inputValue = event.target.value;
+    setChildSize(inputValue);
+    if (inputValue > partySize || inputValue < 0) {
+      setErrChild("Invalid Child Size")
+    } else {
+      const adultValue = partySize - parseInt(inputValue);
+      setAdultSize(adultValue.toString());
+      setErrChild()
+    }
+
+  }
 
   const tileDisabled = ({ activeStartDate, date, view }) => {
     return date < new Date();
@@ -78,9 +108,9 @@ const BookTable = () => {
                       className="form-control text-center text-primary"
                       value={partySize}
                       readOnly
-                      //   onChange={(e) => {
-                      //     setSize(e.target.value);
-                      //   }}
+                    //   onChange={(e) => {
+                    //     setSize(e.target.value);
+                    //   }}
                     />
                     <button
                       className="btn btn-light text-success fs-bold"
@@ -121,24 +151,22 @@ const BookTable = () => {
                     <h6>Adult</h6>
                   </div>
                   <div>
-                    <input
-                      className="form-control w-50 float-end"
-                      type="text"
-                    />
+                    <input className="form-control w-50 float-end" type="number" onChange={handleAdultInputChange} defaultValue={"0"} value={adultSize} />
                   </div>
+
                 </div>
-                {/* <hr /> */}
-                <div className="d-flex justify-content-between mb-3">
-                  <div>
+              
+
+                <div className="d-flex justify-content-between mb-3 ">
+                  <div  className="mb-3">
                     <h6>Child</h6>
                   </div>
-                  <div>
-                    <input
-                      className="form-control w-50 float-end"
-                      type="text"
-                    />
+                  <div >
+                    <input className="form-control w-50 float-end" type="number" onChange={handleChildInputChange} defaultValue={"0"} value={childSize} />
                   </div>
                 </div>
+              
+               
                 {/* <hr /> */}
                 <div className="mb-3">
                   <div className="mb-2">
