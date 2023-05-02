@@ -32,7 +32,7 @@ const SignUp = () => {
         password: password,
       };
       // console.log(user);
-      userService.addUsers(user).then(toast.success("Register success"));
+      userService.addUsers(user).catch(err => (err.response.status == 400) ? (toast.error("User name already exist")) : (console.log()));
       navigate("/");
     }
     if (password !== confirmPass) {

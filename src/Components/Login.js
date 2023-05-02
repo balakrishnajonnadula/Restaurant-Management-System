@@ -94,7 +94,7 @@ const Login = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
-                  User name
+                  User Name
                 </label>
                 <input
                   value={uName}
