@@ -23,6 +23,9 @@ import BookTable from "./Components/BookTable";
 
 import "react-calendar/dist/Calendar.css";
 import AdminHome from "./Components/AdminHome";
+import DashBoard from "./Components/DashBoard";
+import AdminOrders from "./Components/AdminOrders";
+import AdminCustomers from "./Components/AdminCustomers";
 function App() {
   return (
     <div className="App">
@@ -42,7 +45,11 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/booktable" element={<BookTable />} />
             </Route>
-            <Route path="/admin" element={<AdminHome />} />
+            <Route path="/admin" element={<AdminHome />}>
+              <Route path="/admin" element={<DashBoard />} />
+              <Route path ="/admin/orders" element={<AdminOrders/>}/>
+              <Route path ="/admin/customers" element={<AdminCustomers/>}/>
+            </Route>
           </Routes>
         </BrowserRouter>
       </Provider>
