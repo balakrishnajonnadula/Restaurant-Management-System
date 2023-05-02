@@ -83,7 +83,7 @@ const Login = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
-                  Email address
+                  Username
                 </label>
                 <input
                   value={uName}

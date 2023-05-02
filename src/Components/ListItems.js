@@ -55,8 +55,8 @@ const ListItems = () => {
 
                       <div className="background pb-3" >
                         <br/>
-                        <h5 className="fs-5">{item.title}</h5>
-                        <h5 className="fs-5">₹ {item.price}</h5>
+                        <p className="">{item.title}</p>
+                        <p className="">₹ {item.price}</p>
                         <button className="custom-btn w-75 py-1" onClick={(e) => { handleDetails(e, item.id) }}>Details</button>
 
                       </div>

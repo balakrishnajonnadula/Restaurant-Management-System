@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const NavBar = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
-  console.log("nav data ", user);
+  // console.log("nav data ", user);
 
 
   const handleLogout = (e) => {
