@@ -23,12 +23,7 @@ const ListItems = () => {
 
   return (
     <div className="container-fluid">
-      <div className="container">
-        <div className="my-4">
-          <button className="text-success item-btn me-4">Veg</button>
-          <button className="text-danger item-btn">Non-veg</button>
-        </div>
-      </div>
+      
       <div className="container">
         <div className="my-4">
           <h3>Choose Items</h3>

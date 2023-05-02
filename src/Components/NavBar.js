@@ -7,10 +7,6 @@ import userService from "../services/userService";
 import { useEffect, useState } from "react";
 import itemsService from "../services/itemsService";
 
-const NavBar = (props) => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  // const navigate = useNavigate();
-  // console.log("nav data ", user);
 
 const NavBar = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -159,6 +155,5 @@ const NavBar = (props) => {
     </div>
   );
 };
-}
 
 export default NavBar;
