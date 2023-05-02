@@ -63,11 +63,19 @@ const Login = () => {
         : console.log();
     });
 
-    itemsService
-      .viewCartItems()
-      .then((res) => localStorage.setItem("cart", JSON.stringify(res.data)));
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log("User ", user);
+
+    if (user.is_superuser === true) {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
+    // itemsService
+    //   .viewCartItems()
+    //   .then((res) => localStorage.setItem("cart", JSON.stringify(res.data)));
+
     // localStorage.setItem("cart", JSON.stringify(cartItems));
-    navigate("/");
   }
 
   return (
