@@ -54,7 +54,7 @@ const NavBar = (props) => {
   };
 
   return (
-    <div>
+    <div className="sticky-top">
       {/* Nab Bar */}
       <nav className="navbar  navbar-expand-lg bg-body-tertiary navbar-dark bg-dark py-1">
         <div className="container-fluid ">

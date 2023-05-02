@@ -121,7 +121,10 @@ const BookTable = () => {
                     <h6>Adult</h6>
                   </div>
                   <div>
-                    <input className="form-control" type="time" />
+                    <input
+                      className="form-control w-50 float-end"
+                      type="text"
+                    />
                   </div>
                 </div>
                 {/* <hr /> */}
@@ -130,7 +133,10 @@ const BookTable = () => {
                     <h6>Child</h6>
                   </div>
                   <div>
-                    <input className="form-control" type="time" />
+                    <input
+                      className="form-control w-50 float-end"
+                      type="text"
+                    />
                   </div>
                 </div>
                 {/* <hr /> */}
@@ -148,7 +154,7 @@ const BookTable = () => {
                 <button
                   className="w-100 py-2 btn btn-primary my-3"
                   onClick={(e) => {
-                    handleBookTable(e);
+                    // handleBookTable(e);
                   }}
                 >
                   Book the table
