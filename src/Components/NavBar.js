@@ -9,6 +9,11 @@ import itemsService from "../services/itemsService";
 
 const NavBar = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
+  // const navigate = useNavigate();
+  // console.log("nav data ", user);
+
+const NavBar = (props) => {
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const [cartItems, setCartItems] = useState([]);
 
@@ -154,5 +159,6 @@ const NavBar = (props) => {
     </div>
   );
 };
+}
 
 export default NavBar;
