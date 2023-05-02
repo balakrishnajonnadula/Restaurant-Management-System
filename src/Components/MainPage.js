@@ -12,7 +12,6 @@ import "../styles/home.css";
 import { useNavigate } from "react-router-dom";
 
 const MainPage = () => {
-
   const navigate = useNavigate();
   return (
     <div>
@@ -21,8 +20,6 @@ const MainPage = () => {
         id="carouselExampleInterval"
         className="carousel slide"
         data-bs-ride="carousel"
-
-
       >
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="1000">
@@ -54,7 +51,6 @@ const MainPage = () => {
           </div>
           <div className="carousel-item" data-bs-interval="1000">
             <img
-              
               src={banner_one}
               className="d-block "
               width={"100%"}
@@ -151,7 +147,14 @@ const MainPage = () => {
                 </div>
                 <div className="d-flex justify-content-center my-4">
                   <div>
-                    <button className="button">Book a table</button>
+                    <button
+                      className="button"
+                      onClick={() => {
+                        navigate("/booktable");
+                      }}
+                    >
+                      Book a table
+                    </button>
                   </div>
                 </div>
               </div>
@@ -171,7 +174,14 @@ const MainPage = () => {
                 </div>
                 <div className="d-flex justify-content-center my-4">
                   <div>
-                    <button className="button" onClick={() => { navigate("/categories") }}>Order</button>
+                    <button
+                      className="button"
+                      onClick={() => {
+                        navigate("/categories");
+                      }}
+                    >
+                      Order
+                    </button>
                   </div>
                 </div>
               </div>

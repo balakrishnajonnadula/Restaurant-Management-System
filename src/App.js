@@ -12,25 +12,38 @@ import ListItems from "./Components/ListItems";
 import ViewItem from "./Components/ViewItem";
 import SignUp from "./Components/SignUp";
 import OrderFood from "./Components/OrderFood";
-import { ToastContainer} from "react-toastify";
+import OrderTable from "./Components/OrderTable";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Cart from "./Components/Cart";
+import store from "./redux/store";
+import { Provider } from "react-redux";
+import BookTable from "./Components/BookTable";
+
+import 'react-calendar/dist/Calendar.css';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={<Home />}>
-            <Route path="/" exact element={<MainPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/listitems/:slug" element={<ListItems />} />
-            <Route path="/viewitem/:id" element={<ViewItem />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/orderfood" element={<OrderFood />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" exact element={<Home />}>
+              <Route path="/" exact element={<MainPage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/listitems/:slug" element={<ListItems />} />
+              <Route path="/viewitem/:id" element={<ViewItem />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/orderfood" element={<OrderFood />} />
+              <Route path="/ordertable" element={<OrderTable />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/booktable" element={<BookTable />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Provider>
       <ToastContainer />
     </div>
   );

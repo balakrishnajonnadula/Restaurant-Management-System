@@ -11,8 +11,14 @@ const Footer = () => {
             <div className="d-block text-white px-5">
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="form-text">
-                    <Link to={"/"} style={{ textDecoration: 'none' }}>Home</Link>
+                  <p>
+                    <Link
+                      to={"/"}
+                      className="form-text"
+                      style={{ textDecoration: "none" }}
+                    >
+                      Home
+                    </Link>
                   </p>
                 </div>
                 <div>
@@ -39,7 +45,15 @@ const Footer = () => {
             <div className="d-block text-white px-5">
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="form-text">Book a table</p>
+                  <p>
+                    <Link
+                      to={"/booktable"}
+                      className="form-text"
+                      style={{ textDecoration: "none" }}
+                    >
+                      Book a table
+                    </Link>
+                  </p>
                 </div>
                 <div>
                   <img
@@ -52,7 +66,16 @@ const Footer = () => {
             <div className="d-block text-white px-5">
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="form-text"><Link to={"/categories"} style={{ textDecoration: 'none' }}> Order Food</Link></p>
+                  <p>
+                    <Link
+                      className="form-text"
+                      to={"/categories"}
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      Order Food
+                    </Link>
+                  </p>
                 </div>
                 <div>
                   <img
@@ -65,7 +88,13 @@ const Footer = () => {
             <div className="d-block text-white px-5">
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="form-text">Reviews</p>
+                  <Link
+                    className="form-text"
+                    style={{ textDecoration: "none" }}
+                    to={"/contact"}
+                  >
+                    Contact us
+                  </Link>
                 </div>
                 <div>
                   <img
@@ -115,9 +144,7 @@ const Footer = () => {
               </div>
               <div className="d-flex justify-content-between">
                 <div>
-                  <p className="bg_color" >
-                    phone number +91 9966003344
-                  </p>
+                  <p className="bg_color">phone number +91 9966003344</p>
                 </div>
                 <div>
                   <p></p>

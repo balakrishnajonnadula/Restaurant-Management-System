@@ -13,7 +13,7 @@ const ListItems = () => {
     itemsService.getItemsList().then((res) => setItems(res.data));
   }, []);
 
-  console.log(items);
+  // console.log(items);
 
   const handleDetails = (e, id) => {
     e.preventDefault()
@@ -39,10 +39,10 @@ const ListItems = () => {
           {
             items &&
             items.map((item, index) =>
-              (item.category_slug == slug) ? (<div className="col-lg-2 col-md-4 col-sm-12 " key={index}>
-                <div className="box-item text-center my-5">
-                  <div className="image-item shape ">
-                    <div className="item-css">
+              (item.category_slug == slug) ? (<div className="col-lg-3 col-md-4 col-sm-12 " key={index}>
+                <div className=" text-center my-5">
+                  <div className=" ">
+                    <div className="border_box  pt-4 pb-3 mx-2" >
 
                       <img
                         className="image"
@@ -50,14 +50,14 @@ const ListItems = () => {
                         alt={item.slug}
                         width={"100px"}
                         height={"100px"}
-                        style={{ borderRadius: '50px' }}
+                        style={{ borderRadius: '18rem' }}
                       />
 
                       <div className="background pb-3" >
                         <br/>
-                        <p className="">{item.title}</p>
-                        <p className="">₹ {item.price}</p>
-                        <button className="custom-btn w-75 py-1" onClick={(e) => { handleDetails(e, item.id) }}>Details</button>
+                        <h5 className="form-text px-3">{item.title}</h5>
+                        <h5 className="form-text">₹ {item.price}</h5>
+                        <button className="custom-btn w-50 py-1" onClick={(e) => { handleDetails(e, item.id) }}>Details</button>
 
                       </div>
                     </div>

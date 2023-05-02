@@ -12,10 +12,14 @@
 }
 
 .background {
-    background-color: #00000029;
+    background-color: none;
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
     height: 100%;
+}
+.border_box{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 4px;
 }
 
 .image:hover {
