@@ -21,7 +21,8 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 import BookTable from "./Components/BookTable";
 
-import 'react-calendar/dist/Calendar.css';
+import "react-calendar/dist/Calendar.css";
+import AdminHome from "./Components/AdminHome";
 function App() {
   return (
     <div className="App">
@@ -41,6 +42,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/booktable" element={<BookTable />} />
             </Route>
+            <Route path="/admin" element={<AdminHome />} />
           </Routes>
         </BrowserRouter>
       </Provider>

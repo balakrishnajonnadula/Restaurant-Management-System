@@ -182,7 +182,7 @@ const BookTable = () => {
                 <button
                   className="w-100 py-2 btn btn-primary my-3"
                   onClick={(e) => {
-                    handleBookTable(e);
+                    // handleBookTable(e);
                   }}
                 >
                   Book the table
