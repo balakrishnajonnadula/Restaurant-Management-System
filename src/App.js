@@ -26,7 +26,8 @@ import AdminHome from "./Components/AdminHome";
 import DashBoard from "./Components/DashBoard";
 import AdminOrders from "./Components/AdminOrders";
 import AdminCustomers from "./Components/AdminCustomers";
-import AdminViewCustomer from "./Components/AdminViewCustomer";
+import AdminCategories from "./Components/AdminCategories";
+import AdminItemsList from "./Components/AdminItemsList";
 function App() {
   return (
     <div className="App">
@@ -48,12 +49,10 @@ function App() {
             </Route>
             <Route path="/admin" element={<AdminHome />}>
               <Route path="/admin" element={<DashBoard />} />
-              <Route path="/admin/orders" element={<AdminOrders />} />
-              <Route path="/admin/customers" element={<AdminCustomers />} />
-              <Route
-                path="/admin/customers/view/:id"
-                element={<AdminViewCustomer />}
-              />
+              <Route path ="/admin/orders" element={<AdminOrders/>}/>
+              <Route path ="/admin/customers" element={<AdminCustomers/>}/>
+              <Route path ="/admin/categories" element={<AdminCategories/>}/>
+              <Route path ="/admin/itemslist" element={<AdminItemsList/>}/>
             </Route>
           </Routes>
         </BrowserRouter>
