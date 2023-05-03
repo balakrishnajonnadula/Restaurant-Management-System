@@ -5,6 +5,8 @@ import userService from "../services/userService";
 import { toast } from "react-toastify";
 
 const AdminHome = () => {
+<<<<<<< HEAD
+=======
   const [users, setUsers] = useState([]);
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
@@ -13,6 +15,7 @@ const AdminHome = () => {
     userService.getUsers().then((res) => setUsers(res.data));
   }, []);
 
+>>>>>>> 3caa127665cfacc2daa104234f35285afafd681a
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
