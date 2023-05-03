@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 // import itemsService from "../services/itemsService";
 
-import itemsService from "../services/itemsService";
 
 const Login = () => {
   const [uName, setUname] = useState();
