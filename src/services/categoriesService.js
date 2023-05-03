@@ -5,6 +5,10 @@ class categoriesService {
   getCategories() {
     return axios.get(BASE_URL + "categories/");
   }
+
+  getCategoriesById(id){
+    return axios.get(BASE_URL + "categories/" + id);
+  }
  
 }
 export default new categoriesService();
