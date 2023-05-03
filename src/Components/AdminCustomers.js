@@ -31,7 +31,7 @@ const AdminCustomers = () => {
   return (
     <div>
       <div className="container">
-        <div className="card">
+        <div className="card my-5">
           <div className="card-header">
             <h3>Customers List</h3>
           </div>

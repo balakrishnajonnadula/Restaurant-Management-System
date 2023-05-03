@@ -7,7 +7,6 @@ import userService from "../services/userService";
 import { useEffect, useState } from "react";
 import itemsService from "../services/itemsService";
 
-
 const NavBar = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -49,6 +48,7 @@ const NavBar = (props) => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     localStorage.removeItem("cart");
+    localStorage.removeItem("orders");
     toast.success("Logout successful");
     navigate("/");
   };
@@ -141,7 +141,8 @@ const NavBar = (props) => {
                     handleCart(e);
                   }}
                 >
-                  Cart&nbsp; <span className="text-warning">{count.length}</span>
+                  Cart&nbsp;{" "}
+                  <span className="text-warning">{count.length}</span>
                 </Link>
               </div>
             </form>

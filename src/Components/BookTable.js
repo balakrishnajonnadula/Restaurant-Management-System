@@ -60,7 +60,7 @@ const BookTable = () => {
     e.preventDefault();
     navigate("/ordertable");
   };
-  //   console.log(value);
+  
   return (
     <div>
       <div className="container">
