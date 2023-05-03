@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Categories = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        categoriesService.getCategories().then(res=> setCategories(res));
+        categoriesService.getCategories().then(res=> setCategories(res.data));
     }, []);
     const navigate = useNavigate();
 

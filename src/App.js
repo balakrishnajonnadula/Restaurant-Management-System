@@ -28,6 +28,7 @@ import AdminOrders from "./Components/AdminOrders";
 import AdminCustomers from "./Components/AdminCustomers";
 import AdminCategories from "./Components/AdminCategories";
 import AdminItemsList from "./Components/AdminItemsList";
+import AdminViewItem from "./Components/AdminViewItem";
 function App() {
   return (
     <div className="App">
@@ -53,6 +54,8 @@ function App() {
               <Route path ="/admin/customers" element={<AdminCustomers/>}/>
               <Route path ="/admin/categories" element={<AdminCategories/>}/>
               <Route path ="/admin/itemslist" element={<AdminItemsList/>}/>
+              <Route path ="/admin/viewitem/:id" element={<AdminViewItem/>}/>
+              
             </Route>
           </Routes>
         </BrowserRouter>

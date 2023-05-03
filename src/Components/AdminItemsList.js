@@ -19,7 +19,7 @@ const AdminItemsList = () => {
 
     return (
         <div>
-            <div className="container">
+            <div className="container" >
                 <div className="card">
                     <div className="card-header">
                         <h3>Categories List</h3>
@@ -54,7 +54,7 @@ const AdminItemsList = () => {
                                                 height={"70px"}
                                                 style={{ borderRadius: '18rem' }}
                                             /></td>
-                                            <td><Link to=""></Link></td>
+                                            <td><Link to={`/admin/viewitem/${item.id}`} className='p-5 bg-blue' style={{textDecoration:'none'}}>View</Link></td>
                                             <td>update</td>
                                             <td>delete</td>
                                         </tr>

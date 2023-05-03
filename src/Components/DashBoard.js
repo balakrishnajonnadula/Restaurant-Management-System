@@ -11,9 +11,10 @@ const DashBoard = () => {
 
   useEffect(() => {
     userService.getUsers().then((res) => setUsers(res.data));
-    categoriesService.getCategories().then((res) => setCategories(res));
+    categoriesService.getCategories().then((res) => setCategories(res.data));
     itemsService.getItemsList().then((res) => setItems(res.data));
   }, []);
+  console.log(categories)
   return (
     <div className="container" style={{ height: "82.5vh" }}>
       <div>
