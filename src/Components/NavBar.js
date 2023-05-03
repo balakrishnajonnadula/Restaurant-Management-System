@@ -113,11 +113,7 @@ const NavBar = (props) => {
                           Orders
                         </Link>
                       </li>
-                      <li>
-                        <Link className="dropdown-item" href="#">
-                          Another action
-                        </Link>
-                      </li>
+                     
                       <li>
                         <hr className="dropdown-divider"></hr>
                       </li>
