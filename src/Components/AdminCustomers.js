@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import userService from "../services/userService";
 
+import { Link } from "react-router-dom";
+
 //jquery
 import "/node_modules/jquery/dist/jquery.min.js";
 //Datatable Modules
@@ -30,11 +32,19 @@ const AdminCustomers = () => {
   console.log("Users : ", listOfUsers);
   return (
     <div>
-      <div className="container">
-        <div className="card my-5">
-          <div className="card-header">
+      <div className="container" style={{height:"82.5vh"}}>
+        <div className="d-flex justify-content-between">
+          <div>
             <h3>Customers List</h3>
           </div>
+          <div>
+            <button className="btn btn-dark" style={{ borderRadius: "18rem" }}>
+              &nbsp;Add Customer
+            </button>
+          </div>
+        </div>
+
+        <div className="card my-3">
           <div className="card-body">
             <table id="example" className="">
               <thead>
@@ -54,7 +64,15 @@ const AdminCustomers = () => {
                       <td>{user.username}</td>
                       <td>{user.email}</td>
                       <td>{user.date_joined.substring(0, 10)}</td>
-                      <td>view</td>
+                      <td>
+                        <Link
+                          className=""
+                          style={{ textDecoration: "none" }}
+                          to={"/admin/customers/view/" + user.id}
+                        >
+                          view
+                        </Link>
+                      </td>
                     </tr>
                   ))}
               </tbody>
