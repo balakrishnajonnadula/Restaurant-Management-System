@@ -52,10 +52,21 @@ const Cart = () => {
       // console.log("length : ", count.length);
       navigate("/categories");
       window.location.reload();
-    }else{
+    } else {
       itemsService.deleteCartItem(id).catch((err) => toast.error(err));
       window.location.reload();
     }
+  };
+
+  const handleConfirmOreder = (e) => {
+    localStorage.setItem("orders", JSON.stringify(count));
+    count.map((item) => {
+      itemsService.deleteCartItem(item.id).catch((err) => toast.error(err));
+    });
+    navigate("/orderfood");
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   console.log(count);
@@ -87,11 +98,10 @@ const Cart = () => {
                   <strong>₹ {item.item.price}</strong>
                   <p
                     className="form-text text-danger fw-bold pt-4 "
-                    style={{cursor:"pointer"}}
+                    style={{ cursor: "pointer" }}
                     onClick={(e) => {
                       handleDelete(e, item.id);
                     }}
-                    
                   >
                     Delete
                   </p>
@@ -138,7 +148,8 @@ const Cart = () => {
                 <button
                   className="w-100 py-1 order_btn"
                   onClick={(e) => {
-                    navigate("/orderfood");
+                    handleConfirmOreder(e);
+                    // navigate("/orderfood");
                   }}
                 >
                   Confirm Order

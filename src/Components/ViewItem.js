@@ -72,7 +72,7 @@ const ViewItem = () => {
         .catch((err) => toast.error(err));
 
       navigate(`/listitems/${viewItem.category_slug}`);
-      window.location.reload();
+      // window.location.reload();
     } else {
       toast.error("User must be login");
       navigate("/login");

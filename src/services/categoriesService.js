@@ -3,7 +3,7 @@ import { BASE_URL } from "../constants/baseUrl";
 
 class categoriesService {
   getCategories() {
-    return axios.get(BASE_URL + "categories/").then((res) => res.data);
+    return axios.get(BASE_URL + "categories/");
   }
  
 }
