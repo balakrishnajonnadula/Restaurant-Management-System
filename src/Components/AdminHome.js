@@ -5,15 +5,13 @@ import userService from "../services/userService";
 import { toast } from "react-toastify";
 
 const AdminHome = () => {
-
   const [users, setUsers] = useState([]);
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
 
-
   useEffect(() => {
     userService.getUsers().then((res) => setUsers(res.data));
-  }, [])
+  }, []);
 
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
@@ -64,7 +62,6 @@ const AdminHome = () => {
                 aria-expanded="false"
               >
                 {user.username}
-
               </Link>
               <ul className="dropdown-menu me-2 ">
                 <li>

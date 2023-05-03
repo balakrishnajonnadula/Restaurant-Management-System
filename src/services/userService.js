@@ -35,6 +35,10 @@ class userService {
       },
     });
   }
+
+  getUserById(id) {
+    return axios.get(BASE_URL + "users/" + id );
+  }
 }
 
 export default new userService();

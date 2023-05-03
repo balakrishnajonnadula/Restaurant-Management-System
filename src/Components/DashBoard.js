@@ -15,7 +15,7 @@ const DashBoard = () => {
     itemsService.getItemsList().then((res) => setItems(res.data));
   }, []);
   return (
-    <div>
+    <div className="container" style={{ height: "82.5vh" }}>
       <div>
         <h1 class="h2">Dashboard</h1>
         <p></p>
@@ -181,7 +181,11 @@ const DashBoard = () => {
           <span>Copyright © 2019-2023 Yellow Chilli Restaurant</span>
           <ul class="nav m-0">
             <li class="nav-item">
-              <Link class="nav-link text-secondary" aria-current="page" href="#">
+              <Link
+                class="nav-link text-secondary"
+                aria-current="page"
+                href="#"
+              >
                 Privacy Policy
               </Link>
             </li>
