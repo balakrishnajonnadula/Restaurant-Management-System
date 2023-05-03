@@ -37,7 +37,11 @@ class userService {
   }
 
   getUserById(id) {
-    return axios.get(BASE_URL + "users/" + id );
+    return axios.get(BASE_URL + "users/" + id);
+  }
+
+  updateUser(id, user) {
+    return axios.patch(BASE_URL + "users/" + id, user);
   }
 }
 

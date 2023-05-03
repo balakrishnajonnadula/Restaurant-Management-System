@@ -65,7 +65,7 @@ const Login = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     console.log("User ", user);
 
-    if (user.is_superuser === true) {
+    if (user.is_superuser == true) {
       navigate("/admin");
     } else {
       navigate("/");
