@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {  useParams } from 'react-router-dom';
+import {  Link, useParams } from 'react-router-dom';
 import itemsService from '../services/itemsService';
 
 const AdminViewItem = () => {
@@ -26,6 +26,7 @@ const AdminViewItem = () => {
                 height={"100%"}
               />
             </div>
+           
           </div>
         ) : (
           console.log()
@@ -34,13 +35,28 @@ const AdminViewItem = () => {
           <div className="col-lg-7 col-md-9 col-sm-12 my-5">
             <div >
                 
-              <h2 className="text-uppercase">{viewItem.title}</h2>
-              <h3>₹ {viewItem.price}</h3>
+              <h2 className="text-uppercase">{viewItem.name}</h2>
+          
               
               <h6>{viewItem.description}</h6>
              
               <h4 >Category : {viewItem.category_name}</h4>
+
             </div>
+            <div className='mt-5'>
+            <Link className="p-2 bg-success"
+                          style={{ textDecoration: "none" ,color:'white',borderRadius:'1rem'}}
+                          to={"/admin/itemlist/view/"}>
+                          Update
+                        </Link>
+                        <Link
+            className=" mx-5 p-2 bg-danger"
+                          style={{ textDecoration: "none" ,color:'white',borderRadius:'1rem'}}
+                          to={"/admin/itemlist/view/"}
+                        >
+                          Delete
+                        </Link> 
+          </div>
           </div>
         ) : (
           console.log()
