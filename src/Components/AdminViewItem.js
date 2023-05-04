@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
 import {  useParams } from 'react-router-dom';
 import itemsService from '../services/itemsService';
@@ -53,14 +52,3 @@ const AdminViewItem = () => {
 }
 
 export default AdminViewItem
-=======
-import React from 'react'
-
-const AdminViewItem = () => {
-  return (
-    <div>AdminViewItem</div>
-  )
-}
-
-export default AdminViewItem
->>>>>>> origin/master
