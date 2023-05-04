@@ -4,7 +4,6 @@ import $ from 'jquery'
 import { Link } from 'react-router-dom';
 const AdminItemsList = () => {
     const [itemslist, setItemsList] = useState([]);
-
     const getItemsList = async () => {
         await itemsService.getItemsList().then((res)=>setItemsList(res.data))
         //initialize datatable
@@ -16,7 +15,6 @@ const AdminItemsList = () => {
     useEffect(() => {
         getItemsList();
     }, []);
-
     return (
         <div>
             <div className="container" >
@@ -54,9 +52,9 @@ const AdminItemsList = () => {
                                                 height={"70px"}
                                                 style={{ borderRadius: '18rem' }}
                                             /></td>
-                                            <td><Link to={`/admin/viewitem/${item.id}`} className='p-5 bg-blue' style={{textDecoration:'none'}}>View</Link></td>
-                                            <td>update</td>
-                                            <td>delete</td>
+                                            <td><Link to={`/admin/viewitem/${item.id}`} style={{textDecoration:'none',borderRadius:'10px',color:'white'}} className='p-2 bg-primary'>View</Link></td>
+                                            <td><Link to={`/admin/viewitem/${item.id}`} style={{textDecoration:'none',borderRadius:'10px',color:'white'}} className='p-2 bg-success'>Update</Link></td>
+                                            <td><Link to={`/admin/viewitem/${item.id}`} style={{textDecoration:'none',borderRadius:'10px',color:'white'}} className='p-2 bg-danger'>Delete</Link></td>
                                         </tr>
                                     ))}
                             </tbody>
