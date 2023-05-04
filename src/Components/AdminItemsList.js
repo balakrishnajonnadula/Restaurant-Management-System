@@ -22,7 +22,7 @@ const AdminItemsList = () => {
       <div className="container">
         <div className="d-flex justify-content-between">
           <div>
-            <h3>Categories List</h3>
+            <h3>Items List</h3>
           </div>
           <div>
             <div>
@@ -42,8 +42,8 @@ const AdminItemsList = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Item</th>
                   <th>Image</th>
+                  <th>Item</th>
                   <th>Category Name</th>
                   <th>Price ₹</th>
                   <th>View</th>
@@ -54,17 +54,17 @@ const AdminItemsList = () => {
                   itemsList.map((item, index) => (
                     <tr key={index}>
                       <td>{item.id}</td>
-                      <td>{item.title}</td>
                       <td>
                         <img
-                          className="image"
+                          className=""
                           src={item.image}
                           alt={item.slug}
                           width={"70px"}
                           height={"70px"}
-                          style={{ borderRadius: "18rem" }}
+                          // style={{ borderRadius: "18rem" }}
                         />
                       </td>
+                        <td>{item.title}</td>
                       <td>{item.category_name}</td>
                       <td>₹{item.price}</td>
                       <td>

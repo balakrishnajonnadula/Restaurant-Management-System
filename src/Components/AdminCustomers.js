@@ -29,7 +29,7 @@ const AdminCustomers = () => {
   users.map((user) =>
     user.is_superuser === false ? listOfUsers.push(user) : console.log()
   );
-  console.log("Users : ", listOfUsers);
+  // console.log("Users : ", listOfUsers);
   return (
     <div>
       <div className="container" style={{height:"82.5vh"}}>
