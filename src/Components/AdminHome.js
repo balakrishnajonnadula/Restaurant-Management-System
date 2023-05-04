@@ -5,14 +5,6 @@ import userService from "../services/userService";
 import { toast } from "react-toastify";
 
 const AdminHome = () => {
-  const [users, setUsers] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    userService.getUsers().then((res) => setUsers(res.data));
-  }, []);
-
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
@@ -75,7 +67,6 @@ const AdminHome = () => {
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
       </nav>
@@ -93,51 +84,74 @@ const AdminHome = () => {
                     aria-current="page"
                     to={"/admin"}
                   >
-
-                    <i className="bi bi-house-door" style={{ color: 'white' }}></i>
+                    <i
+                      className="bi bi-house-door"
+                      style={{ color: "white" }}
+                    ></i>
                     <span className="ml-2 ps-3 text-white">Dashboard</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to={"/admin/orders"}>
-
-
-                    <i className="bi bi-cart " style={{ color: 'white' }}></i>
+                    <i className="bi bi-cart " style={{ color: "white" }}></i>
                     <span className="ml-2 ps-3 text-white">Orders</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/admin/itemslist">
-
-                    <i className="bi bi-list-check" style={{ color: 'white' }}></i>
+                    <i
+                      className="bi bi-list-check"
+                      style={{ color: "white" }}
+                    ></i>
                     <span className="ml-2 ps-3 text-white">Items List</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to={"/admin/customers"}>
-
-
-                    <i className="bi bi-person-lines-fill" style={{ color: 'white' }}></i>
+                    <i
+                      className="bi bi-person-lines-fill"
+                      style={{ color: "white" }}
+                    ></i>
                     <span className="ml-2 ps-3 text-white">Customers</span>
                   </Link>
                   <Link className="nav-link" to={"/admin/categories"}>
-
-                    <i className="bi-bookmarks" style={{ color: 'white' }} ></i>
+                    <i className="bi-bookmarks" style={{ color: "white" }}></i>
                     <span className="ml-2 ps-3 text-white">Categories</span>
                   </Link>
                 </li>
-
               </ul>
             </div>
           </nav>
           <main className="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
-
             <Outlet />
+            <footer class="pt-5 d-flex justify-content-between">
+              <span>Copyright © 2019-2023 Yellow Chilli Restaurant</span>
+              <ul class="nav m-0">
+                <li class="nav-item">
+                  <Link
+                    class="nav-link text-secondary"
+                    aria-current="page"
+                    href="#"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">
+                    Terms and conditions
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-secondary" href="#">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </footer>
           </main>
           {/* <Outlet/> */}
         </div>
       </div>
-
     </div>
   );
 };

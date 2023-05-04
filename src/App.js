@@ -28,7 +28,10 @@ import AdminOrders from "./Components/AdminOrders";
 import AdminCustomers from "./Components/AdminCustomers";
 import AdminCategories from "./Components/AdminCategories";
 import AdminItemsList from "./Components/AdminItemsList";
+import AdminViewCustomer from "./Components/AdminViewCustomer";
+import AdminCustomerUpdate from "./Components/AdminCustomerUpdate";
 import AdminViewItem from "./Components/AdminViewItem";
+import AdminViewCategory from "./Components/AdminViewCategory";
 function App() {
   return (
     <div className="App">
@@ -50,12 +53,26 @@ function App() {
             </Route>
             <Route path="/admin" element={<AdminHome />}>
               <Route path="/admin" element={<DashBoard />} />
-              <Route path ="/admin/orders" element={<AdminOrders/>}/>
-              <Route path ="/admin/customers" element={<AdminCustomers/>}/>
-              <Route path ="/admin/categories" element={<AdminCategories/>}/>
-              <Route path ="/admin/itemslist" element={<AdminItemsList/>}/>
-              <Route path ="/admin/viewitem/:id" element={<AdminViewItem/>}/>
-              
+              <Route path="/admin/orders" element={<AdminOrders />} />
+              <Route path="/admin/customers" element={<AdminCustomers />} />
+              <Route path="/admin/categories" element={<AdminCategories />} />
+              <Route path="/admin/itemslist" element={<AdminItemsList />} />
+              <Route
+                path="/admin/customers/view/:id"
+                element={<AdminViewCustomer />}
+              />
+              <Route
+                path="/admin/customers/update/:id"
+                element={<AdminCustomerUpdate />}
+              />
+              <Route
+                path="/admin/itemlist/view/:id"
+                element={<AdminViewItem />}
+              />
+              <Route
+                path="/admin/categories/view/:id"
+                element={<AdminViewCategory />}
+              />
             </Route>
           </Routes>
         </BrowserRouter>
