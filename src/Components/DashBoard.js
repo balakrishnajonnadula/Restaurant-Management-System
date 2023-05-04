@@ -14,6 +14,7 @@ const DashBoard = () => {
     categoriesService.getCategories().then((res) => setCategories(res.data));
     itemsService.getItemsList().then((res) => setItems(res.data));
   }, []);
+  console.log(categories)
   return (
     <div className="container" style={{ height: "82.5vh" }}>
       <div>

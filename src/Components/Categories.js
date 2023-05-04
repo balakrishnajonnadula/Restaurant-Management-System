@@ -4,11 +4,19 @@ import "../styles/categories.css";
 import { useNavigate } from "react-router-dom";
 
 const Categories = () => {
+<<<<<<< HEAD
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        categoriesService.getCategories().then(res=> setCategories(res.data));
+    }, []);
+    const navigate = useNavigate();
+=======
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     categoriesService.getCategories().then((res) => setCategories(res.data));
   }, []);
   const navigate = useNavigate();
+>>>>>>> origin/master
 
   const handleItem = (e, slug) => {
     e.preventDefault();
