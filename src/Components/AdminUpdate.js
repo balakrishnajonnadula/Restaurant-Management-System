@@ -5,8 +5,6 @@ const AdminUpdate = () => {
   const { id } = useParams();
 
   
-
-
   return (
     <div className="container-fluid">
       <div className="row" style={{ height: "90vh" }}>

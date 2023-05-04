@@ -56,18 +56,18 @@ const AdminCategories = () => {
                           className="image"
                           src={cat.image}
                           alt={cat.slug}
-                          width={"70px"}
-                          height={"70px"}
+                          width={"100px"}
+                          height={"100px"}
                           style={{ borderRadius: "18rem" }}
                         />
                       </td>
                       <td>
                         <Link
-                          className=""
-                          style={{ textDecoration: "none" }}
+                          className="p-2 bg-primary"
+                          style={{ textDecoration: "none",color:'white' ,borderRadius:'10px'}}
                           to={"/admin/categories/view/" + cat.id}
                         >
-                          view
+                          View
                         </Link>
                       </td>
                     </tr>

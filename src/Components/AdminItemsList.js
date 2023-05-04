@@ -69,8 +69,8 @@ const AdminItemsList = () => {
                       <td>₹{item.price}</td>
                       <td>
                         <Link
-                          className=""
-                          style={{ textDecoration: "none" }}
+                          className="p-2 bg-primary"
+                          style={{ textDecoration: "none" ,color:'white',borderRadius:'1rem'}}
                           to={"/admin/itemlist/view/" + item.id}
                         >
                           View
