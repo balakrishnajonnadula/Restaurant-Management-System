@@ -35,7 +35,7 @@ const NavBar = (props) => {
       navigate("/cart");
     } else {
       toast.error("Cart is empty add items");
-      navigate("/categories");
+     navigate("/categories");
     }
   };
 
