@@ -63,11 +63,11 @@ const AdminCategories = () => {
                       <td>{cat.name}</td>
                       <td>
                         <Link
-                          className=""
-                          style={{ textDecoration: "none" }}
+                          className="p-2 bg-primary"
+                          style={{ textDecoration: "none",color:'white' ,borderRadius:'10px'}}
                           to={"/admin/categories/view/" + cat.id}
                         >
-                          view
+                          View
                         </Link>
                       </td>
                     </tr>
