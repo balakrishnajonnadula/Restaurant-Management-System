@@ -23,7 +23,7 @@ const NavBar = (props) => {
   if (user != null) {
     cartItems &&
       cartItems.map((item) => {
-        if (user.id == item.user.id) {
+        if (user.id == item.user.id && item.status === "Active") {
           count.push(item);
         }
       });
@@ -113,7 +113,7 @@ const NavBar = (props) => {
                           Orders
                         </Link>
                       </li>
-                     
+
                       <li>
                         <hr className="dropdown-divider"></hr>
                       </li>
