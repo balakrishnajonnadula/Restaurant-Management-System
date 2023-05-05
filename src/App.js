@@ -34,6 +34,7 @@ import AdminViewItem from "./Components/AdminViewItem";
 import AdminViewCategory from "./Components/AdminViewCategory";
 import AdminCategoryUpdate from "./Components/AdminCategoryUpdate";
 import AdminAddCategory from "./Components/AdminAddCategory";
+import AdminItemUpdate from "./Components/AdminItemUpdate";
 function App() {
   return (
     <div className="App">
@@ -79,11 +80,17 @@ function App() {
                 path="/admin/categories/update/:id"
                 element={<AdminCategoryUpdate />}
               />
-                <Route
+              <Route
                 path="/admin/categories/addcategory/"
                 element={<AdminAddCategory />}
               />
+              <Route
+                path="/admin/itemlist/update/:id"
+                element={<AdminItemUpdate />}
+              />
             </Route>
+
+
           </Routes>
         </BrowserRouter>
       </Provider>

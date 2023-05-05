@@ -28,9 +28,9 @@ const AdminAddCategory = () => {
     }
     if (category != null) {
       // console.log(category)
-      categoriesService.postCategories(category);
+      categoriesService.postCategories(category).then(res => (res.status === 201) ? (toast.success("Category added succesfully")) : (console.log())).then(res => navigate("/admin/categories")).catch(err => console.log(err));
     }
-    console.log("Category : ",category);
+    console.log("Category : ", category);
   }
   return (
     <div className="container " style={{ height: "70.5vh" }}>
@@ -95,7 +95,7 @@ const AdminAddCategory = () => {
             <label className="form-label" for="featured">Is_Featured : </label>
             <input
               type="checkbox"
-              className="form-check-input mx-2 mt-1"
+              className="form-check-input mx-2 mt-2"
               id="featured"
               checked={isfeatured}
               onChange={(e) => {
@@ -106,7 +106,7 @@ const AdminAddCategory = () => {
           <div>
             <button
               className="custom-btn bg-success my-2 w-100 py-2"
-              style={{ borderRadius: "18rem" }}
+           
               onClick={(e) => {
                 handleCategory(e);
               }}
@@ -118,7 +118,7 @@ const AdminAddCategory = () => {
           <div className="">
             <button
               className="custom-btn bg-danger my-2 w-100 py-2"
-              style={{ borderRadius: "18rem" }}
+              
               onClick={(e) => {
                 navigate("/admin/categories/");
               }}

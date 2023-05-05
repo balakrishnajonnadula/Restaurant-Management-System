@@ -29,7 +29,7 @@ const AdminHome = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-dark bg-dark p-3">
+      <nav className="navbar navbar-dark bg-dark p-1">
         <div className="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
           <Link
             className="navbar-brand brand fs-3 fw-bold ps-3"

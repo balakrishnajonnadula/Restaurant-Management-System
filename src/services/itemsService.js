@@ -37,14 +37,14 @@ class ItemsService {
     });
   }
 
-  deleteCartItem(id) {
-    let token = localStorage.getItem("token");
-    return axios.delete(BASE_URL + "cart_items/" + id + "/", {
-      headers: {
-        Authorization: `Token ${token}`,
-      },
-    });
-  }
+  // deleteCartItem(id) {
+  //   let token = localStorage.getItem("token");
+  //   return axios.delete(BASE_URL + "cart_items/" + id + "/", {
+  //     headers: {
+  //       Authorization: `Token ${token}`,
+  //     },
+  //   });
+  // }
 
   updateCartItem(id, item) {
     let token = localStorage.getItem("token");
@@ -54,6 +54,17 @@ class ItemsService {
       },
     });
   }
+
+
+updateItem(id, item) {
+  return axios.patch(BASE_URL + "items/" + id +"/", item,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }
+  )
 }
 
+}
 export default new ItemsService();

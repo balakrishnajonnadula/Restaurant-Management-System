@@ -35,22 +35,22 @@ const AdminViewItem = () => {
           <div className="col-lg-7 col-md-9 col-sm-12 my-5">
             <div >
                 
-              <h2 className="text-uppercase">{viewItem.name}</h2>
+              <h2 className="text-uppercase">{viewItem.title}</h2>
           
               
-              <h6>{viewItem.description}</h6>
+              <h6 className='mt-3'>{viewItem.description}</h6>
              
-              <h4 >Category : {viewItem.category_name}</h4>
+              <h4 className='mt-3'>Category : {viewItem.category_name}</h4>
 
             </div>
             <div className='mt-5'>
-            <Link className="p-2 bg-success"
+            <Link className="px-3 py-2 bg-primary"
                           style={{ textDecoration: "none" ,color:'white',borderRadius:'1rem'}}
-                          to={"/admin/itemlist/view/"}>
+                          to={"/admin/itemlist/update/"+viewItem.id}>
                           Update
                         </Link>
                         <Link
-            className=" mx-5 p-2 bg-danger"
+            className=" mx-5 px-3 py-2 bg-danger"
                           style={{ textDecoration: "none" ,color:'white',borderRadius:'1rem'}}
                           to={"/admin/itemlist/view/"}
                         >

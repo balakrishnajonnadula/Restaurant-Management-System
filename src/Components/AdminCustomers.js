@@ -66,11 +66,11 @@ const AdminCustomers = () => {
                       <td>{user.date_joined.substring(0, 10)}</td>
                       <td>
                         <Link
-                          className=""
-                          style={{ textDecoration: "none" }}
+                         className="px-3 py-2 bg-primary"
+                         style={{ textDecoration: "none" ,color:'white',borderRadius:'1rem'}}
                           to={"/admin/customers/view/" + user.id}
                         >
-                          view
+                          View
                         </Link>
                       </td>
                     </tr>
