@@ -7,6 +7,15 @@ import { toast } from "react-toastify";
 const AdminHome = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+  useEffect(() => {
+    let userDetails = JSON.parse(localStorage.getItem("user"));
+    console.log(userDetails);
+    if (userDetails == null) {
+      navigate("/");
+    } else if (userDetails.username !== "admin") {
+      navigate("/");
+    }
+  });
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -53,7 +62,7 @@ const AdminHome = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {user.username}
+                {user && user.username}
               </Link>
               <ul className="dropdown-menu me-2 ">
                 <li>
@@ -124,27 +133,27 @@ const AdminHome = () => {
           </nav>
           <main className="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
             <Outlet />
-            <footer class="pt-5 d-flex justify-content-between">
+            <footer className="pt-5 d-flex justify-content-between">
               <span>Copyright © 2019-2023 Yellow Chilli Restaurant</span>
-              <ul class="nav m-0">
-                <li class="nav-item">
+              <ul className="nav m-0">
+                <li className="nav-item">
                   <Link
-                    class="nav-link text-secondary"
+                    className="nav-link text-secondary"
                     aria-current="page"
                     href="#"
                   >
                     Privacy Policy
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link text-secondary" href="#">
+                <li className="nav-item">
+                  <Link className="nav-link text-secondary" href="#">
                     Terms and conditions
-                  </a>
+                  </Link>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link text-secondary" href="#">
+                <li className="nav-item">
+                  <Link className="nav-link text-secondary" href="#">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </footer>

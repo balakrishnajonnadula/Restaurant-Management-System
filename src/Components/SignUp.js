@@ -32,8 +32,19 @@ const SignUp = () => {
         password: password,
       };
       // console.log(user);
-      userService.addUsers(user).catch(err => (err.response.status == 400) ? (toast.error("User name already exist")) : (console.log()));
-      navigate("/");
+      userService
+        .addUsers(user)
+        .then((res) =>
+          res.status === 201
+            ? toast.success("Register successful")
+            : console.log()
+        )
+        .then(navigate("/"))
+        .catch((err) =>
+          err.response.status == 400
+            ? toast.error("User name already exist")
+            : console.log()
+        );
     }
     if (password !== confirmPass) {
       setConfirmPass("Password mismatch");

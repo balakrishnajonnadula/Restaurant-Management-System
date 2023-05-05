@@ -24,7 +24,7 @@ const AdminCategories = () => {
       <div className="container" style={{ height: "100%" }}>
         <div className="d-flex justify-content-between">
           <div>
-            <h3>Customers List</h3>
+            <h3>Categories List</h3>
           </div>
           <div>
             <Link className="btn btn-dark px-5" style={{ borderRadius: "18rem" }} 
@@ -40,8 +40,8 @@ const AdminCategories = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Category Name</th>
                   <th>image</th>
+                  <th>Category Name</th>
                   <th>View</th>
                 </tr>
               </thead>
@@ -50,7 +50,6 @@ const AdminCategories = () => {
                   categories.map((cat, index) => (
                     <tr key={index}>
                       <td>{cat.id}</td>
-                      <td>{cat.name}</td>
 
                       <td>
                         {" "}
@@ -58,11 +57,12 @@ const AdminCategories = () => {
                           className="image"
                           src={cat.image}
                           alt={cat.slug}
-                          width={"100px"}
-                          height={"100px"}
-                          style={{ borderRadius: "18rem" }}
+                          width={"70px"}
+                          height={"70px"}
+                          // style={{ borderRadius: "18rem" }}
                         />
                       </td>
+                      <td>{cat.name}</td>
                       <td>
                         <Link
                           className="p-2 bg-primary"

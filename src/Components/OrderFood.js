@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import congratsimg from "../assets/Group 197@2x.jpg";
+import { useNavigate } from "react-router-dom";
 const OrderFood = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
+  const navigate = useNavigate();
   let totalPrice = 0;
   let orders = [];
 
   orders = JSON.parse(localStorage.getItem("orders"));
-
-  orders.map((price) => {
-    let amt = price.item.price * price.quantity;
-    totalPrice += amt;
+  useEffect(() => {
+    
+    if (orders == null) {
+      navigate("/login");
+    }
   });
+  setTimeout(() => {
+    localStorage.removeItem("orders");
+  }, 3000);
+
+  if (orders != null) {
+    orders.map((price) => {
+      let amt = price.item.price * price.quantity;
+      totalPrice += amt;
+    });
+  }
 
   return (
     <div className="container-fluid">
@@ -41,7 +54,7 @@ const OrderFood = () => {
                     Order for :
                     <span style={{ color: "#097ED8" }}>
                       {" "}
-                      &nbsp;&nbsp;{user.username}
+                      &nbsp;&nbsp;{user && user.username}
                     </span>
                   </p>
                   <p className=" ">
@@ -87,7 +100,7 @@ const OrderFood = () => {
                   <div className="col-md-12 col-lg-4 col-sm-12 mt-3">
                     <div className="d-flex justify-content-between">
                       <div className=" fw-bold">
-                        items&nbsp;({orders.length}) &emsp;
+                        items&nbsp;({orders && orders.length}) &emsp;
                       </div>
                       <div className="fw-bold"> {}</div>
 

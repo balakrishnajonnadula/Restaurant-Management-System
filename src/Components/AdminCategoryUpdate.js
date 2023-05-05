@@ -34,12 +34,12 @@ const AdminCategoryUpdate = () => {
     e.preventDefault();
     navigate("/admin/categories/view/" + id);
   };
-  const handleUpload=()=>{
-    const formData=new FormData();
-    formData.append('image',selectedFile)
+  // const handleUpload=()=>{
+  //   const formData=new FormData();
+  //   formData.append('image',selectedFile)
     
 
-  }
+  // }
 
   return (
     <div className="container " style={{ height: "70.5vh" }}>

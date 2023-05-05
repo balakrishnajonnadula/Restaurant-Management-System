@@ -45,6 +45,15 @@ class ItemsService {
       },
     });
   }
+
+  updateCartItem(id, item) {
+    let token = localStorage.getItem("token");
+    return axios.patch(BASE_URL + "cart_items/" + id + "/", item, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
+  }
 }
 
 export default new ItemsService();

@@ -22,6 +22,8 @@ const Cart = () => {
   const getItems = async () => {
     if (user != null) {
       await itemsService.viewCartItems().then((res) => setCartItems(res.data));
+    } else {
+      navigate("/categories");
     }
     navigateCount();
   };
@@ -34,7 +36,7 @@ const Cart = () => {
 
   cartItems &&
     cartItems.map((item) => {
-      if (user.id == item.user.id) {
+      if (user.id == item.user.id && item.status === "Active") {
         count.push(item);
       }
     });
@@ -61,21 +63,30 @@ const Cart = () => {
   const handleConfirmOreder = (e) => {
     localStorage.setItem("orders", JSON.stringify(count));
     count.map((item) => {
-      itemsService.deleteCartItem(item.id).catch((err) => toast.error(err));
+      let patchItem = {};
+      patchItem = item;
+      patchItem.status = "Delivered";
+      console.log("Pathch item : ", patchItem);
+
+      itemsService
+        .updateCartItem(item.id, patchItem)
+        .catch((err) => toast.error(err));
     });
     navigate("/orderfood");
     setTimeout(() => {
       window.location.reload();
-    }, 500);
+    }, 1000);
   };
 
-  console.log(count);
+  if (count.length < 1) {
+    navigate("/categories");
+  }
   // console.log("total price : ", totalPrice);
   return (
     <div className="container my-5">
       {cartItems &&
         cartItems.map((item) =>
-          user.id == item.user.id ? (
+          user.id == item.user.id && item.status === "Active" ? (
             <div>
               <div className="row ">
                 <div className="col-lg-2 col-md-2 col-sm-12">
