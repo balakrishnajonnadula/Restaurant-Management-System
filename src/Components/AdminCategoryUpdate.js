@@ -34,12 +34,12 @@ const AdminCategoryUpdate = () => {
     e.preventDefault();
     navigate("/admin/categories/view/" + id);
   };
-  const handleUpload=()=>{
-    const formData=new FormData();
-    formData.append('image',selectedFile)
+  // const handleUpload=()=>{
+  //   const formData=new FormData();
+  //   formData.append('image',selectedFile)
     
 
-  }
+  // }
 
   return (
     <div className="container " style={{ height: "70.5vh" }}>
@@ -89,18 +89,10 @@ const AdminCategoryUpdate = () => {
                 setSelectedFile(e.target.files[0]);
               }}
             />
-             <button
-              className="custom-btn bg-primary my-2 w-100 py-2"
-              onClick={() => {
-                handleUpload();
-              }}
-            >
-             Upload
-            </button>
           </div>
           <div>
             <button
-             
+             className="custom-btn bg-primary my-2 w-100 py-2"
               onClick={(e) => {
                 handleUpdate(e);
               }}

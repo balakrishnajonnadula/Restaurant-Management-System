@@ -9,7 +9,9 @@ const AdminHome = () => {
   const navigate = useNavigate();
   useEffect(() => {
     let userDetails = JSON.parse(localStorage.getItem("user"));
-    if (userDetails.username !== "admin") {
+    if (userDetails && userDetails.username !== "admin") {
+      navigate("/");
+    }else{
       navigate("/");
     }
   });
@@ -59,7 +61,7 @@ const AdminHome = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {user.username}
+                {user && user.username}
               </Link>
               <ul className="dropdown-menu me-2 ">
                 <li>

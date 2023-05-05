@@ -10,8 +10,9 @@ const OrderFood = () => {
 
   orders = JSON.parse(localStorage.getItem("orders"));
   useEffect(() => {
+    
     if (orders == null) {
-      navigate("/categories");
+      navigate("/login");
     }
   });
   setTimeout(() => {
@@ -53,7 +54,7 @@ const OrderFood = () => {
                     Order for :
                     <span style={{ color: "#097ED8" }}>
                       {" "}
-                      &nbsp;&nbsp;{user.username}
+                      &nbsp;&nbsp;{user && user.username}
                     </span>
                   </p>
                   <p className=" ">

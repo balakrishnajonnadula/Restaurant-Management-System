@@ -35,7 +35,7 @@ const AdminOrders = () => {
       <div>
         <div className="d-flex justify-content-between">
           <div>
-            <h3>Items List</h3>
+            <h3>Orders List</h3>
           </div>
           <div>
             {/* <div>
