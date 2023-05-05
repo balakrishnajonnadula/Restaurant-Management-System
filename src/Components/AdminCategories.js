@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import categoriesService from "../services/categoriesService";
 import $ from "jquery";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
-
+  const navigate = useNavigate();
   const getCategoriesList = async () => {
     await categoriesService
       .getCategories()
@@ -27,9 +27,11 @@ const AdminCategories = () => {
             <h3>Categories List</h3>
           </div>
           <div>
-            <button className="btn btn-dark" style={{ borderRadius: "18rem" }}>
+            <Link className="btn btn-dark px-5" style={{ borderRadius: "18rem" }} 
+            to={"/admin/categories/addcategory"}
+            >
               &nbsp;Add Category
-            </button>
+            </Link>
           </div>
         </div>
         <div className="card mt-3">

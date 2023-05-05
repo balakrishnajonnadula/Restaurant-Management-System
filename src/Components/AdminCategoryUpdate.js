@@ -89,10 +89,18 @@ const AdminCategoryUpdate = () => {
                 setSelectedFile(e.target.files[0]);
               }}
             />
+             {/* <button
+              className="custom-btn bg-primary my-2 w-100 py-2"
+              onClick={() => {
+                handleUpload();
+              }}
+            >
+             Upload
+            </button> */}
           </div>
           <div>
             <button
-             className="custom-btn bg-primary my-2 w-100 py-2"
+             className="custom-btn bg-success my-2 w-100 py-2"
               onClick={(e) => {
                 handleUpdate(e);
               }}
