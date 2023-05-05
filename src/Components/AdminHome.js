@@ -9,9 +9,10 @@ const AdminHome = () => {
   const navigate = useNavigate();
   useEffect(() => {
     let userDetails = JSON.parse(localStorage.getItem("user"));
-    if (userDetails && userDetails.username !== "admin") {
+    console.log(userDetails);
+    if (userDetails == null) {
       navigate("/");
-    }else{
+    } else if (userDetails.username !== "admin") {
       navigate("/");
     }
   });
