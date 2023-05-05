@@ -33,6 +33,7 @@ import AdminCustomerUpdate from "./Components/AdminCustomerUpdate";
 import AdminViewItem from "./Components/AdminViewItem";
 import AdminViewCategory from "./Components/AdminViewCategory";
 import AdminCategoryUpdate from "./Components/AdminCategoryUpdate";
+import AdminAddCategory from "./Components/AdminAddCategory";
 function App() {
   return (
     <div className="App">
@@ -77,6 +78,10 @@ function App() {
               <Route
                 path="/admin/categories/update/:id"
                 element={<AdminCategoryUpdate />}
+              />
+                <Route
+                path="/admin/categories/addcategory/"
+                element={<AdminAddCategory />}
               />
             </Route>
           </Routes>

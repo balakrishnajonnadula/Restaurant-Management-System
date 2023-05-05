@@ -29,7 +29,7 @@ const AdminHome = () => {
           >
             Yellow Chilli Restaurant
           </Link>
-          <button
+          {/* <button
             className="navbar-toggler d-md-done collapsed mb-3"
             type="button"
             data-toggle="collapse"
@@ -39,7 +39,7 @@ const AdminHome = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-          </button>
+          </button> */}
         </div>
         <div className="col-12 col-md-4 col-lg-2"></div>
         <div className="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
