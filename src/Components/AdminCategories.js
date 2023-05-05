@@ -65,8 +65,8 @@ const AdminCategories = () => {
                       <td>{cat.name}</td>
                       <td>
                         <Link
-                          className="p-2 bg-primary"
-                          style={{ textDecoration: "none",color:'white' ,borderRadius:'10px'}}
+                          className="px-3 py-2 bg-primary"
+                          style={{ textDecoration: "none",color:'white' ,borderRadius:'20px'}}
                           to={"/admin/categories/view/" + cat.id}
                         >
                           View

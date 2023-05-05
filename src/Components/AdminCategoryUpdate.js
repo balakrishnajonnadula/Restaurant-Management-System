@@ -4,28 +4,34 @@ import categoriesService from '../services/categoriesService';
 import { toast } from 'react-toastify';
 
 const AdminCategoryUpdate = () => {
-    const { id } = useParams();
+  const { id } = useParams();
   //   const [role, setRole] = useState(true);
-  const [category, setCategory] = useState([])
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [category, setCategory] = useState({})
+  const [status, setStatus] = useState();
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    categoriesService.getCategoriesById(id).then(res=>setCategory(res.data))
+    categoriesService.getCategoriesById(id).then(res => setCategory(res.data))
   }, []);
-    console.log(category);
+  console.log("categories", category);
 
-  // handle update
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    // console.log(user);
-    categoriesService.updateCategories(id,category)
+    console.log("Category : ", category);
+
+    categoriesService.updateCategories(id, category)
       .then((res) =>
-        res.status === 200 ? toast.success("Updated successful") : console.log()
+        (setStatus(res.status))
       )
-      .then(navigate("/admin/categories/view/" + id))
       .catch((err) => toast.error(err));
+
+    if (status === 200) {
+      toast.success("Update Succesfull");
+      navigate("/admin/categories/view/"+id)
+    }
+    // console.log("status ; ", status)
   };
 
   //   handle cancel
@@ -34,15 +40,10 @@ const AdminCategoryUpdate = () => {
     e.preventDefault();
     navigate("/admin/categories/view/" + id);
   };
-  // const handleUpload=()=>{
-  //   const formData=new FormData();
-  //   formData.append('image',selectedFile)
-    
 
-  // }
 
   return (
-    <div className="container " style={{ height: "70.5vh" }}>
+    <div className="container " >
       <div>
         <h3 className="text-center">Update Category Details</h3>
       </div>
@@ -53,7 +54,7 @@ const AdminCategoryUpdate = () => {
             <input
               type="text"
               className="custom-input"
-              readonly
+              readOnly
               value={category.id}
             />
           </div>
@@ -84,12 +85,12 @@ const AdminCategoryUpdate = () => {
             <input
               type="file"
               className="custom-input"
-            
+
               onChange={(e) => {
-                setSelectedFile(e.target.files[0]);
+                setCategory({ ...category, image: e.target.files[0] });
               }}
             />
-             {/* <button
+            {/* <button
               className="custom-btn bg-primary my-2 w-100 py-2"
               onClick={() => {
                 handleUpload();
@@ -100,7 +101,7 @@ const AdminCategoryUpdate = () => {
           </div>
           <div>
             <button
-             className="custom-btn bg-success my-2 w-100 py-2"
+              className="custom-btn bg-success my-2 w-100 py-2"
               onClick={(e) => {
                 handleUpdate(e);
               }}
@@ -121,7 +122,7 @@ const AdminCategoryUpdate = () => {
         </div>
       </div>
 
-    
+
     </div>
   )
 }

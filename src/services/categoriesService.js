@@ -6,17 +6,26 @@ class categoriesService {
     return axios.get(BASE_URL + "categories/");
   }
   updateCategories(id, category) {
-    return axios.put(BASE_URL + "categories/" + id, category)
+    return axios.patch(BASE_URL + "categories/" + id +"/", category,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+    )
   }
+
   getCategoriesById(id) {
     return axios.get(BASE_URL + "categories/" + id);
   }
   postCategories(category) {
-    return axios.post(BASE_URL + "categories/", category, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
+    return axios.post(BASE_URL + "categories/", category
+      , {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       }
-    })
+    )
   }
 
 

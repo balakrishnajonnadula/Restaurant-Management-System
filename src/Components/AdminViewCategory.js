@@ -40,17 +40,17 @@ const AdminViewCategory = () => {
               <h6 className="mt-3">{category.description}</h6>
             </div>
             <div className='mt-5'>
-              <Link className="p-2 bg-success"
+              <Link className="px-3 py-2 bg-primary"
                 style={{ textDecoration: "none", color: 'white', borderRadius: '1rem' }}
                 to={"/admin/categories/update/"+category.id}>
                 Update
               </Link>
               <Link
-                className=" mx-5 p-2 bg-danger"
+                className=" mx-5 px-3 py-2 bg-danger"
                 style={{ textDecoration: "none", color: 'white', borderRadius: '1rem' }}
-                to={"/admin/itemlist/view/"}
+                to={"/admin/categories/"}
               >
-                Delete
+               Back
               </Link>
             </div>
           </div>
