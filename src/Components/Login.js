@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 // import itemsService from "../services/itemsService";
 
-
 const Login = () => {
   const [uName, setUname] = useState();
   const [password, setPassword] = useState();
@@ -66,7 +65,7 @@ const Login = () => {
     console.log("User ", user);
 
     if (user.is_superuser == true) {
-      navigate("/admin");
+        navigate("/admin");
     } else {
       navigate("/");
     }
