@@ -66,10 +66,10 @@ const AdminItemsList = () => {
                       </td>
                         <td>{item.title}</td>
                       <td>{item.category_name}</td>
-                      <td>₹{item.price}</td>
+                      <td>₹&nbsp;{item.price}</td>
                       <td>
                         <Link
-                          className="p-2 bg-primary"
+                          className="px-3 py-1 bg-primary"
                           style={{ textDecoration: "none" ,color:'white',borderRadius:'1rem'}}
                           to={"/admin/itemlist/view/" + item.id}
                         >

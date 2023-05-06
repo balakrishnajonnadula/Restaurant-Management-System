@@ -22,12 +22,10 @@ const BookTable = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("http://192.168.3.180:8000/tables/")
-      .then((res) => setTables(res.data));
+    tableService.getTables().then((res) => setTables(res.data));
   }, []);
 
-  console.log("Tables", tables);
+  // console.log("Tables", tables);
 
   const tileDisabled = ({ activeStartDate, date, view }) => {
     return date < new Date();
@@ -35,8 +33,9 @@ const BookTable = () => {
 
   const getTableData = (e, id) => {
     e.preventDefault();
-    tableService.getTables(id).then((res) => setTabData(res.data));
+    tableService.getTablesById(id).then((res) => setTabData(res.data));
   };
+  console.log("Tab Data : ", tabData);
 
   const handleBookTable = (e) => {
     e.preventDefault();
@@ -62,11 +61,6 @@ const BookTable = () => {
         reservation_type: reservationType,
         user: user.id,
       };
-      // table: {
-      //   number: tabData.number,
-      //   capacity: tabData.capacity,
-      //   available: true,
-      // },
       // console.log("Order table : ", orderTable);
       tableService
         .reserveTable(orderTable)
@@ -82,9 +76,10 @@ const BookTable = () => {
             ? toast.error("Bad Request")
             : console.log()
         );
+      console.log("Order table", orderTable);
     } else {
       toast.error("Login Required");
-      navigate("/");
+      navigate("/login");
     }
   };
 
@@ -118,12 +113,17 @@ const BookTable = () => {
                         getTableData(e, e.target.value);
                       }}
                     >
+                      <option selected>Choose</option>
                       {tables &&
-                        tables.map((table) => (
-                          <option value={table.id}>
-                            Table - {table.id - 6}
-                          </option>
-                        ))}
+                        tables.map((table) =>
+                          table.available ? (
+                            <option value={table.id}>
+                              Table - {table.id - 6}
+                            </option>
+                          ) : (
+                            console.log()
+                          )
+                        )}
                     </select>
                   </div>
                 </div>
@@ -138,11 +138,12 @@ const BookTable = () => {
                       value={slot}
                       onChange={(e) => setSlot(e.target.value)}
                     >
+                      <option selected>Choose</option>
                       <option value="11:00">11.00</option>
                       <option value="12:00">12.00</option>
                       <option value="13:00">13.00</option>
                       <option value="19:00">19.00</option>
-                      <option value="20:00">20:00</option>
+                      <option value="20:00">20.00</option>
                       <option value="21:00">21.00</option>
                     </select>
                     {/* <button
@@ -202,6 +203,7 @@ const BookTable = () => {
                       value={reservationType}
                       onChange={(e) => setReservationType(e.target.value)}
                     >
+                      <option selected>Choose</option>
                       <option selected value="Lunch">
                         Lunch
                       </option>
