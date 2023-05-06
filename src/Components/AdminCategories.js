@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import categoriesService from "../services/categoriesService";
 import $ from "jquery";
 import { Link, useNavigate } from "react-router-dom";
+
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
+
   const getCategoriesList = async () => {
     await categoriesService
       .getCategories()
@@ -14,7 +16,9 @@ const AdminCategories = () => {
       $("#example").DataTable();
     });
   };
-  console.log(categories);
+
+  // console.log(categories);
+
   useEffect(() => {
     getCategoriesList();
   }, []);
@@ -27,8 +31,10 @@ const AdminCategories = () => {
             <h3>Categories List</h3>
           </div>
           <div>
-            <Link className="btn btn-dark px-5" style={{ borderRadius: "18rem" }} 
-            to={"/admin/categories/addcategory"}
+            <Link
+              className="btn btn-dark px-5"
+              style={{ borderRadius: "18rem" }}
+              to={"/admin/categories/addcategory"}
             >
               &nbsp;Add Category
             </Link>
@@ -66,7 +72,11 @@ const AdminCategories = () => {
                       <td>
                         <Link
                           className="px-3 py-2 bg-primary"
-                          style={{ textDecoration: "none",color:'white' ,borderRadius:'20px'}}
+                          style={{
+                            textDecoration: "none",
+                            color: "white",
+                            borderRadius: "20px",
+                          }}
                           to={"/admin/categories/view/" + cat.id}
                         >
                           View

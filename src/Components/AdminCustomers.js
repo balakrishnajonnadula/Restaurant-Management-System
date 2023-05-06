@@ -66,7 +66,7 @@ const AdminCustomers = () => {
                       <td>{user.date_joined.substring(0, 10)}</td>
                       <td>
                         <Link
-                         className="px-3 py-2 bg-primary"
+                         className="px-3 py-1 bg-primary"
                          style={{ textDecoration: "none" ,color:'white',borderRadius:'1rem'}}
                           to={"/admin/customers/view/" + user.id}
                         >
